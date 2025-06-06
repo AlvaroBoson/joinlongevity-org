@@ -73,30 +73,33 @@ export default function WhosWho() {
               {/* Hero Images */}
               <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 mb-8 sm:mb-12 md:mb-16">
                 {/* Left Image */}
-                <motion.div variants={fadeInUp} className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-gray-700">
+                <motion.div variants={fadeInUp} className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-2xl border-2 sm:border-4 border-gray-700">
                   <Image
                     src="/image/whoswho/bryan-hero.png"
                     alt="Bryan Johnson"
                     fill
-                    className="w-full h-full object-cover"
+                    className="object-cover"
+                    sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, 144px"
                   />
                 </motion.div>
                 {/* Middle Image */}
-                <motion.div variants={fadeInUp} className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-gray-700">
+                <motion.div variants={fadeInUp} className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl border-2 sm:border-4 border-gray-700">
                   <Image
                     src="/image/whoswho/aubrey-hero.png"
                     alt="Aubrey de Grey"
                     fill
-                    className="w-full h-full object-cover"
+                    className="object-cover"
+                    sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
                   />
                 </motion.div>
                 {/* Right Image */}
-                <motion.div variants={fadeInUp} className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-gray-700">
+                <motion.div variants={fadeInUp} className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-2xl border-2 sm:border-4 border-gray-700">
                   <Image
                     src="/image/whoswho/sinclair-hero.png"
                     alt="David Sinclair"
                     fill
-                    className="w-full h-full object-cover"
+                    className="object-cover"
+                    sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, 144px"
                   />
                 </motion.div>
               </div>
