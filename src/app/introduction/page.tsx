@@ -49,7 +49,7 @@ export default function Introduction() {
           transition={{ duration: 0.8 }}
           className="px-6 md:px-0"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-center mb-10 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-center mb-10 leading-tight text-gray-900">
             Let us properly<br className="block sm:hidden" /> introduce<br />
             you to Longevity
           </h1>

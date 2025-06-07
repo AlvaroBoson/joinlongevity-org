@@ -75,7 +75,7 @@ export default function WhosWho() {
                 {/* Left Image */}
                 <motion.div variants={fadeInUp} className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-2xl border-2 sm:border-4 border-gray-700">
                   <Image
-                    src="/image/whoswho/bryan-hero.png"
+                    src="/image/whoswho/bryan-johnson.webp"
                     alt="Bryan Johnson"
                     fill
                     className="object-cover"
@@ -85,7 +85,7 @@ export default function WhosWho() {
                 {/* Middle Image */}
                 <motion.div variants={fadeInUp} className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl border-2 sm:border-4 border-gray-700">
                   <Image
-                    src="/image/whoswho/aubrey-hero.png"
+                    src="/image/whoswho/aubrey-de-grey.webp"
                     alt="Aubrey de Grey"
                     fill
                     className="object-cover"
@@ -95,7 +95,7 @@ export default function WhosWho() {
                 {/* Right Image */}
                 <motion.div variants={fadeInUp} className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-2xl border-2 sm:border-4 border-gray-700">
                   <Image
-                    src="/image/whoswho/sinclair-hero.png"
+                    src="/image/whoswho/david-sinclair.webp"
                     alt="David Sinclair"
                     fill
                     className="object-cover"

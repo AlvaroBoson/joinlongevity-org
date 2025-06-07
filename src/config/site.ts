@@ -1,3 +1,6 @@
 export const siteConfig = {
-  lastUpdated: "June 6, 2025",
+  name: "Join Longevity",
+  description: "A platform to understand and get involved in the longevity field.",
+  url: "https://joinlongevity.org",
+  lastUpdated: "June 7, 2025",
 }; 

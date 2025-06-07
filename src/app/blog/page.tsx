@@ -48,7 +48,7 @@ export default function BlogPage() {
             We value <span className="font-semibold">accuracy and transparency</span>. That&apos;s why each post is a <span className="font-semibold text-[#64BC6E]">collaborative effort</span>, combining fresh perspectives with <span className="font-semibold">expert validation</span>.
           </p>
           <Link 
-            href="#" // Placeholder for contact form link
+            href="mailto:alex@joinlongevity.org"
             className="inline-block px-8 py-3 bg-[#64BC6E] text-[#1E2A38] font-semibold rounded-lg hover:bg-[#52a35b] transition-colors text-lg shadow-md"
           >
             Want to contribute?

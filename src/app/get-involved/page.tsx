@@ -258,7 +258,7 @@ export default function GetInvolved() {
                     </div>
                      <div className="w-full text-center lg:text-left mt-8">
                         <Link
-                           href="https://www.longevitylist.com/"
+                           href="https://longevitylist.com/"
                            target="_blank"
                            rel="noopener noreferrer"
                            className="inline-block px-8 py-3 bg-[#64BC6E] text-white font-semibold rounded-lg hover:bg-[#52a35b] transition-colors text-lg shadow-md"
