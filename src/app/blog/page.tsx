@@ -10,19 +10,19 @@ import { siteConfig } from '@/config/site';
 const teamMembers = [
   {
     name: "Alvaro",
-    description: "a connector with a strong network in longevity, building awareness and making the field more accessible.",
+    description: "Bridging gaps in the longevity space by connecting people, building awareness, and making it easier for newcomers to find their place.",
     imageUrl: "/image/blog/alvaro.webp", // Replace with actual or keep placeholder
     linkedinUrl: "https://www.linkedin.com/in/alva-boson/", // Replace with actual LinkedIn URL
   },
   {
     name: "Peter",
-    description: "creating a longevity-focused investment fund, constantly surrounded by the latest biotech news and innovations.",
+    description: "Building a longevity-focused investment fund while staying at the forefront of biotech news, trends, and breakthroughs.",
     imageUrl: "/image/blog/peter.webp",
     linkedinUrl: "https://www.linkedin.com/in/peter-mathiesen-07698542/",
   },
   {
     name: "Mirza",
-    description: "a newcomer to longevity who simply reached out and started contributing, proving you don't need credentials or funding to make an impact.",
+    description: "Mirza joined the longevity movement simply by reaching out, proving you do not need deep credentials or funding to get involved and make a difference.",
     imageUrl: "/image/blog/mirza.webp",
     linkedinUrl: "https://www.linkedin.com/in/mirza-nafeul-islam-638b8493/",
   },
