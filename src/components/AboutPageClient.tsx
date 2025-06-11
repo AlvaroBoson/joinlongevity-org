@@ -10,7 +10,7 @@ export default function AboutPageClient() {
       <section className="w-full py-24 sm:py-32 md:py-40 bg-[#1E2A38] text-white flex flex-col items-center justify-center text-center">
         <div className="container mx-auto px-6 md:px-8">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8">
-            About Join Longevity
+            About | Join Longevity
           </h1>
           <p className="text-xl sm:text-2xl md:text-3xl max-w-3xl mx-auto text-gray-300">
             The longevity field is full of potential but it&apos;s fragmented,
