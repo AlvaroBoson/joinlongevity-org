@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Who's Who in Longevity: A Curated Directory with Trust Scores | Join Longevity",
     description: "Navigate the longevity space with confidence. Explore our curated directory of the most influential people, companies, and projects, complete with community-driven trust scores to help you find who to follow.",
-    url: "https://joinlongevity.com/whos-who",
+    url: "https://joinlongevity.org/whos-who",
     siteName: "Join Longevity",
     images: [
       {
@@ -23,9 +23,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Who's Who in Longevity: A Curated Directory with Trust Scores | Join Longevity",
-    description: "Navigate the longevity space with confidence. Explore our curated directory of the most influential people, companies, and projects, complete with community-driven trust scores to help you find who to follow.",
-    images: ["https://joinlongevity.com/image/whoswho/whos-who-og.webp"],
+    title: "Who's Who in Longevity: Experts, Researchers & Projects | Join Longevity",
+    description: "Navigate the longevity space with our curated guide to the key people, projects, and communities. Find trustworthy sources with Join Longevity.",
+    images: ["https://joinlongevity.org/image/whoswho/whos-who-og.webp"],
+    creator: "@joinlongevity",
   },
 };
 
