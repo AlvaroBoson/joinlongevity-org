@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Join Longevity",
     images: [
       {
-        url: "https://joinlongevity.org/image/longevity-lifestyle-og.webp", // Assuming a relevant OG image
+        url: "https://joinlongevity.org/image/longevity.webp", // Default social sharing image
         width: 1200,
         height: 630,
         alt: "A graphic illustrating key pillars of a longevity lifestyle, like diet and exercise.",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Longevity Lifestyle: A Practical Guide to a Longer, Healthier Life | Join Longevity",
     description: "Learn how to adopt a longevity lifestyle with practical tips on diet, exercise, and habits. Extend your healthspan with Join Longevity's expert advice.",
-    images: ["https://joinlongevity.org/image/longevity-lifestyle-og.webp"],
+    images: ["https://joinlongevity.org/image/longevity.webp"],
     creator: "@joinlongevity",
   },
 };

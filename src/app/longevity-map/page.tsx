@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Join Longevity",
     images: [
       {
-        url: "https://joinlongevity.org/image/longevitymap/healthspan-life-extension-immortality.webp",
+        url: "https://joinlongevity.org/image/longevity.webp",
         width: 1200,
         height: 630,
         alt: "The three horizons of longevity: Healthspan, Life Extension, and Immortality.",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Longevity Map: A Framework for Extending Healthspan | Join Longevity",
     description: "Discover the Longevity Map, a framework for extending healthspan and understanding the longevity field. Join Longevity for insights and opportunities.",
-    images: ["https://joinlongevity.org/image/longevitymap/healthspan-life-extension-immortality.webp"],
+    images: ["https://joinlongevity.org/image/longevity.webp"],
     creator: "@joinlongevity",
   },
 };

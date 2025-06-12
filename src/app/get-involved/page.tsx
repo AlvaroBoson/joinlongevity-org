@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: "Join Longevity",
     images: [
       {
-        url: "https://joinlongevity.org/image/getinvolved/get-involved-og.webp", // Assuming you'll create a relevant OG image
+        url: "https://joinlongevity.org/image/longevity.webp", // Default social sharing image
         width: 1200,
         height: 630,
         alt: "A collage of images representing community, events, and collaboration in the longevity space.",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Get Involved in Longevity: Join the Movement | Join Longevity",
     description: "Discover how you can contribute to the longevity field. Find communities, events, and projects that match your interests and skills at Join Longevity.",
-    images: ["https://joinlongevity.org/image/getinvolved/get-involved-og.webp"],
+    images: ["https://joinlongevity.org/image/longevity.webp"],
     creator: "@joinlongevity",
   },
 };

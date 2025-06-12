@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: "Join Longevity",
     images: [
       {
-        url: "https://joinlongevity.org/image/og-image.webp", // Assuming a general OG image for the homepage
+        url: "https://joinlongevity.org/image/longevity.webp", // Default social sharing image
         width: 1200,
         height: 630,
         alt: "Logo and tagline for Join Longevity, a guide to the longevity ecosystem.",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Join Longevity: Your Guide to the Longevity Ecosystem",
     description: "Join Longevity is your independent guide to the longevity ecosystem. We provide curated, fact-based information to help you navigate the future of health and well-being.",
-    images: ["https://joinlongevity.org/image/og-image.webp"],
+    images: ["https://joinlongevity.org/image/longevity.webp"],
     creator: "@joinlongevity",
   },
 };

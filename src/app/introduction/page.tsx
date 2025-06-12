@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Join Longevity",
     images: [
       {
-        url: "https://joinlongevity.org/image/introduction/introduction-og.webp",
+        url: "https://joinlongevity.org/image/longevity.webp",
         width: 1200,
         height: 630,
         alt: "A visual timeline or infographic explaining the basic concepts of longevity.",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Introduction to Longevity: Start Your Journey Here | Join Longevity",
     description: "What is longevity and why does it matter? Our guide explains the mission to extend healthspan over lifespan, demystifies the science, and shows how you can join the movement towards a healthier future.",
-    images: ["https://joinlongevity.org/image/introduction/introduction-og.webp"],
+    images: ["https://joinlongevity.org/image/longevity.webp"],
     creator: "@joinlongevity",
   },
 };
