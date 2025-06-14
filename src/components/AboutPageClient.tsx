@@ -1,173 +1,116 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
+import Image from 'next/image';
+
+const people = {
+  secretariat: [
+    { name: "Alvaro", role: "Project Steward & Editor-in-Chief", description: "Bridging gaps in the longevity space by connecting people, building awareness, and making it easier for newcomers to find their place.", image: "/image/about/alvaro.webp" },
+    { name: "Peter", role: "Strategic Advisor & Industry Analyst", description: "Building a longevity-focused investment fund while staying at the forefront of biotech news, trends, and breakthroughs.", image: "/image/about/peter.webp" },
+  ],
+  advisory: [
+    { name: "Name", role: "", description: "" },
+    { name: "Name", role: "", description: "" },
+    { name: "Name", role: "", description: "" },
+  ],
+  strategic: [
+    { name: "Name", role: "", description: "" },
+    { name: "Name", role: "", description: "" },
+    { name: "Name", role: "", description: "" },
+  ],
+  contributors: [
+    { name: "Mirza", role: "Scientific Writer", description: "With a background in pharmacology, Mirza contributes articles to our blog, helping to make complex longevity topics accessible to a wider audience.", image: "/image/about/mirza.webp" },
+    { name: "Name", role: "", description: "" },
+    { name: "Name", role: "", description: "" },
+  ],
+};
+
+function TeamSection({ title, description, people, bg = 'dark' }: { title: string; description: string; people: { name?: string; role?: string; description?: string; image?: string }[], bg?: 'dark' | 'light' }) {
+  const sectionBg = bg === 'dark' ? 'bg-[#1E2A38] text-white' : 'bg-white text-[#1E2A38]';
+  return (
+    <section className={`${sectionBg} py-20 px-4`}>
+      <div className="max-w-6xl mx-auto pl-4 sm:pl-8 md:pl-16">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-left">{title}</h2>
+        {description && <p className={`mb-12 max-w-3xl text-lg ${bg === 'dark' ? 'text-gray-200' : 'text-[#1E2A38]'} text-left`}>{description}</p>}
+        <div className="flex flex-wrap gap-x-16 gap-y-14">
+          {people.map((person, i) => {
+            const isPlaceholder = !person.image && (!person.name || person.name === 'Name');
+            return (
+              <div key={i} className="flex flex-col items-start w-48">
+                {person.image ? (
+                  <Image src={person.image} alt={person.name || 'Team member'} width={160} height={160} className="w-40 h-40 object-cover rounded-xl mb-6" />
+                ) : (
+                  <div className={`w-40 h-40 rounded-xl mb-6 flex items-center justify-center ${isPlaceholder ? 'bg-gray-300' : 'bg-teal-800'}`}>
+                    {isPlaceholder && (
+                      <span className="text-gray-700 font-semibold text-lg">Coming Soon</span>
+                    )}
+                  </div>
+                )}
+                {!isPlaceholder && (
+                  <>
+                    <div className={`font-semibold text-lg leading-tight mb-1 ${bg === 'dark' ? 'text-white' : 'text-[#1E2A38]'}`}>{person.name}</div>
+                    {person.role && <div className={`text-sm font-bold mb-2 ${bg === 'dark' ? 'text-white' : 'text-[#1E2A38]'}`}>{person.role}</div>}
+                    {person.description && <div className={`text-xs ${bg === 'dark' ? 'text-gray-300' : 'text-[#4B5563]'}`}>{person.description}</div>}
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function AboutPageClient() {
   return (
-    <div className="min-h-screen w-full">
-      {/* Hero Section */}
-      <section className="w-full py-24 sm:py-32 md:py-40 bg-[#1E2A38] text-white flex flex-col items-center justify-center text-center">
-        <div className="container mx-auto px-6 md:px-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8">
-            About | Join Longevity
-          </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl max-w-3xl mx-auto text-gray-300">
-            The longevity field is full of potential but it&apos;s fragmented,
-            confusing, and too often seen as something just for scientists or
-            billionaires.
+    <div className="min-h-screen w-full bg-[#f7fafc]">
+      {/* Mission Section */}
+      <section className="w-full py-24 bg-[#1E2A38] text-white text-center flex flex-col items-center justify-center">
+        <h1 className="text-5xl sm:text-6xl font-extrabold mb-10">Our Mission & People</h1>
+        <p className="text-xl sm:text-2xl max-w-3xl mx-auto font-semibold mb-6">
+          The longevity field is full of potential but it&apos;s fragmented, confusing, and too often seen as something just for scientists or billionaires. A gap persists between academic research and public understanding, creating confusion and inequality.
+        </p>
+      </section>
+      {/* White Section with Green, more spacious */}
+      <section className="w-full py-24 bg-white/80 text-center">
+        <div className="max-w-4xl mx-auto px-6">
+          <p className="mb-10 text-2xl text-gray-900">
+            We believe the pursuit of a longer, healthier life is a <span className="font-semibold" style={{ color: '#3d9f41' }}>fundamental right</span>
+          </p>
+          <p className="text-2xl text-gray-900">
+            Our mission is to <span className="font-bold" style={{ color: '#3d9f41' }}>democratize longevity</span> by building the world&apos;s most <span className="font-bold">trusted, accessible</span>, and <span className="font-bold">comprehensive</span> resource, bridging the gap between scientific discovery and daily life
           </p>
         </div>
       </section>
-
-      {/* Our Core Mission Section */}
-      <section className="w-full py-16 sm:py-20 bg-[#0A0F14] text-white">
-        <div className="container mx-auto px-6 md:px-8 max-w-3xl text-center">
-          <p className="text-xl sm:text-2xl leading-relaxed mb-4">
-            <strong className="text-white">Join Longevity</strong> was created to change that.
-          </p>
-          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
-            We help people understand what longevity{" "}
-            <em className="font-semibold text-gray-100">really</em> is, how to
-            apply it to their lives, and how to get involved in the field, no
-            matter of their <strong className="text-white">background</strong> or{" "}
-            <strong className="text-white">financial status</strong>.
-          </p>
-        </div>
-      </section>
-
-      {/* The Current Landscape / The Challenge Section */}
-      <section className="w-full py-16 sm:py-24 bg-[#1E2A38] text-white">
-        <div className="container mx-auto px-6 md:px-8 max-w-3xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Navigating the Noise
-          </h2>
-          <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
-            <p>
-              The longevity movement is growing fast but it&apos;s still perceived
-              as <strong className="text-white">exclusive</strong>, reserved for researchers,
-              billionaires, or tech insiders. Because the field is small,
-              it&apos;s surprisingly easy for individuals or brands to gain
-              outsized influence.
-            </p>
-            <p>
-              We&apos;ve seen skincare companies hijack longevity-related searches.
-              We&apos;ve seen figures like Bryan Johnson become the face of the
-              movement almost overnight. And while influencers like Andrew
-              Steele or Linus Peterson help bring visibility, they&apos;re not
-              always active where younger or newer audiences are.
-            </p>
-            <p>
-              This creates the risk where the future of human health could be
-              shaped by <span className="font-bold text-white">whoever gets the most attention</span>, not
-              who&apos;s doing the <span className="font-bold text-[#64BC6E]">most meaningful work</span>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Approach / What We Do Section */}
-      <section className="w-full py-16 sm:py-24 bg-[#0A0F14] text-white">
-        <div className="container mx-auto px-6 md:px-8 max-w-3xl text-center">
-          <p className="text-xl sm:text-2xl leading-relaxed mb-8">
-            <strong className="text-white">Join Longevity</strong> exists to change that.
-          </p>
-          <h3 className="text-2xl sm:text-3xl font-semibold mb-6">
-            We aim to make longevity:
-          </h3>
-          <ul className="space-y-4 text-lg sm:text-xl text-gray-300 max-w-xl mx-auto">
-            <li>
-              <strong className="text-white">Understandable</strong> — with simple guides and
-              orientation tools
-            </li>
-            <li>
-              <strong className="text-white">Actionable</strong> — through curated news, trusted
-              figures, and practical steps
-            </li>
-            <li>
-              <strong className="text-white">Accessible</strong> — for anyone, not just
-              researchers or investors
-            </li>
-          </ul>
-          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mt-10">
-            Whether you&apos;re a <span className="font-bold text-[#64BC6E]">student</span>, 
-            <span className="font-bold text-[#64BC6E]"> enthusiast</span>, a 
-            <span className="font-bold text-[#64BC6E]"> startup founder</span>, or 
-            just <span className="font-bold text-[#64BC6E]">curious</span>, there&apos;s a place for
-            you and you can help longevity.
-          </p>
-        </div>
-      </section>
-
-      {/* Why We Exist Section */}
-      <section className="w-full py-16 sm:py-24 bg-[#1E2A38] text-white">
-        <div className="container mx-auto px-6 md:px-8 max-w-3xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">
-            Why We Exist
-          </h2>
-          <div className="space-y-6 text-lg text-gray-300 leading-relaxed text-center">
-            <p>
-              The longevity movement needs <strong className="text-white">more minds</strong>, 
-              <strong className="text-white"> more energy</strong>, and 
-              <strong className="text-white"> more visibility</strong>.
-            </p>
-            <p>
-              We believe the field will only reach its potential when{" "}
-              <span className="font-bold text-[#64BC6E]">more people</span> understand
-              it, <span className="font-bold text-[#64BC6E]">contribute</span> to it,
-              and <span className="font-bold text-[#64BC6E]">demand</span> its progress.
-            </p>
-            <p>Join Longevity exists to make that possible.</p>
-            <p className="mt-4 text-xl sm:text-2xl">
-              We&apos;re not a company, clinic, or influencer brand. Think of us
-              as an <span className="font-bold text-[#64BC6E]">open, evolving platform</span>, 
-              created for extending human health and possibility.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Non-Profit Status Section */}
-      <section className="w-full py-16 sm:py-20 bg-[#0A0F14] text-white">
-        <div className="container mx-auto px-6 md:px-8 max-w-3xl text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Non-profit</h2>
-          <div className="space-y-4 text-lg sm:text-xl text-gray-300 leading-relaxed">
-            <p>
-              Join Longevity is non-profit. We don&apos;t profit from clicks. We&apos;re
-              here to grow the field and invite more people into it.
-            </p>
-            <p>
-              We don&apos;t do paid placements or affiliate deals. We do research,
-              vetting, and honest orientation.
-            </p>
-            <p>
-              Visibility in this space shouldn&apos;t be bought. It should be earned.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="w-full py-20 sm:py-28 bg-[#1E2A38] text-white">
-        <div className="container mx-auto px-6 md:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10">
-            Want to get involved?
-          </h2>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 text-lg">
-            <Link href="/whos-who" className="text-[#64BC6E] hover:text-[#82d88b] underline font-medium transition-colors duration-150">
-                Who&apos;s Who in Longevity
-            </Link>
-            <span className="hidden sm:inline text-gray-400">|</span>
-            <Link href="/longevity-map" className="text-[#64BC6E] hover:text-[#82d88b] underline font-medium transition-colors duration-150">
-                Explore the Longevity Map
-            </Link>
-            <span className="hidden sm:inline text-gray-400">|</span>
-            <Link href="/get-involved" className="text-[#64BC6E] hover:text-[#82d88b] underline font-medium transition-colors duration-150">
-                Get Involved
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Secretariat (dark) */}
+      <TeamSection
+        title="The Secretariat"
+        description="The Secretariat is the operational body entrusted with carrying out our charter. This team is responsible for the project&apos;s strategic direction, content curation, and community engagement."
+        people={people.secretariat}
+        bg="dark"
+      />
+      {/* Scientific Advisory Board (light) */}
+      <TeamSection
+        title="The Scientific Advisory Board"
+        description="Our Scientific Advisory Board is composed of world-leading researchers, clinicians, and experts in the field of longevity. They provide independent expert guidance and rigorously review our content to ensure it meets the highest standards of scientific accuracy and integrity. Their oversight is crucial to our commitment to providing trusted information."
+        people={people.advisory}
+        bg="light"
+      />
+      {/* Strategic Advisors (dark) */}
+      <TeamSection
+        title="Strategic Advisors"
+        description="This group is composed of leaders from the worlds of investment, technology, and public advocacy. They provide critical insight and high-level guidance to help us grow our impact, navigate the evolving landscape of the longevity industry, and achieve our long-term mission."
+        people={people.strategic}
+        bg="dark"
+      />
+      {/* Contributors (light) */}
+      <TeamSection
+        title="Contributors"
+        description="Our work is brought to life by a dedicated and growing team of science writers, researchers, and content creators. They are instrumental in translating complex topics into clear, engaging, and accessible articles for our community. We are grateful for their diverse voices and perspectives."
+        people={people.contributors}
+        bg="light"
+      />
     </div>
   );
 } 

@@ -28,11 +28,11 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   };
 
   return (
-    <div className="bg-[#1E2A38]/50 backdrop-blur-sm border border-[#64BC6E]/10 rounded-xl p-6 
+    <div className="bg-[#1a2330] border border-[#64BC6E]/10 rounded-xl p-6 
       hover:border-[#64BC6E]/30 transition-all duration-300 group">
       <div className="flex items-start space-x-4">
         {/* Profile Image */}
-        <div className="relative w-20 h-20 flex-shrink-0">
+        <div className="relative w-20 h-20 flex-shrink-0 overflow-hidden rounded-full">
           <Image
             src={imageUrl}
             alt={name}

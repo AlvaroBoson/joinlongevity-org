@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import AboutPageClient from "@/components/AboutPageClient";
 
 export const metadata: Metadata = {
-  title: "About Join Longevity",
-  description: "Learn about the mission of Join Longevity: to make the longevity field accessible to everyone, helping people navigate, apply, and support the science of a longer healthspan.",
+  title: "Our Mission & People | Join Longevity",
+  description: "Meet the people and mission behind Join Longevity. Learn about our secretariat, scientific advisors, strategic advisors, and contributors working to make longevity accessible for all.",
 };
 
 export default function AboutPage() {

@@ -46,7 +46,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
   const hasSelectedFilters = Object.values(selectedFilters).some(arr => arr.length > 0);
 
   return (
-    <div className="w-full bg-[#1E2A38]/50 backdrop-blur-sm border border-[#64BC6E]/10 rounded-xl p-6">
+    <div className="w-full bg-[#1a2330]/50 backdrop-blur-sm border border-[#64BC6E]/10 rounded-xl p-6">
       <div className="flex flex-col space-y-6">
         {/* Filter Groups */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

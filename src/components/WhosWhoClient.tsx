@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import ProfileCard from '@/components/ProfileCard';
 import FilterBar, { Filters } from '@/components/FilterBar';
@@ -113,22 +112,6 @@ export default function WhosWhoClient() {
                 We help you find the people, projects, and communities that align with your goals—curated 
                 by the Join Longevity team and the broader community.
               </p>
-              
-              {/* Featured Picks Section */}
-              <div className="mt-16 mb-12">
-                <p className="text-xl text-gray-200 mb-6">
-                  Not sure where to start? Check out our top picks this month.
-                </p>
-                <Link 
-                  href="/featured-picks"
-                  className="inline-block px-8 py-4 text-lg font-semibold text-white bg-[#64BC6E] rounded-xl 
-                    hover:bg-[#64BC6E]/90 transform hover:scale-105 transition-all duration-300 
-                    shadow-lg hover:shadow-[#64BC6E]/20"
-                >
-                  See Featured Picks
-                </Link>
-              </div>
-
               {/* Minimal Scroll Indicator */}
               <motion.div
                 className="flex flex-col items-center mt-8"
