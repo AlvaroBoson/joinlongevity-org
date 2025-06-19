@@ -194,10 +194,10 @@ export default function HomePageClient() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Longevity Lifestyle",
-                description: "Looking for lifestyle advice or current therapies? This is your guide to living longer and preparing for what's coming next. Explore daily habits, trusted treatments, and future breakthroughs.",
+                title: "Apply Longevity on Yourself",
+                description: "What can you actually do to live longer. Is it lifestyle changes, following and applying therapies to yourself? Which ones? Explore daily habits, trusted treatments, and future breakthroughs.",
                 icon: "/image/homepage/heart.svg",
-                href: "/longevity-lifestyle"
+                href: "/apply-longevity"
               },
               {
                 title: "The Longevity Map",

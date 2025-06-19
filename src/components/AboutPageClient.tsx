@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from 'next/image';
+import FadeInUp from '@/components/FadeInUp';
 
 const people = {
   secretariat: [
@@ -64,53 +65,55 @@ function TeamSection({ title, description, people, bg = 'dark' }: { title: strin
 
 export default function AboutPageClient() {
   return (
-    <div className="min-h-screen w-full bg-[#f7fafc]">
-      {/* Mission Section */}
-      <section className="w-full py-24 bg-[#1E2A38] text-white text-center flex flex-col items-center justify-center">
-        <h1 className="text-5xl sm:text-6xl font-extrabold mb-10">Our Mission & People</h1>
-        <p className="text-xl sm:text-2xl max-w-3xl mx-auto font-semibold mb-6">
-          The longevity field is full of potential but it&apos;s fragmented, confusing, and too often seen as something just for scientists or billionaires. A gap persists between academic research and public understanding, creating confusion and inequality.
-        </p>
-      </section>
-      {/* White Section with Green, more spacious */}
-      <section className="w-full py-24 bg-white/80 text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <p className="mb-10 text-2xl text-gray-900">
-            We believe the pursuit of a longer, healthier life is a <span className="font-semibold" style={{ color: '#3d9f41' }}>fundamental right</span>
+    <FadeInUp as="main">
+      <div className="min-h-screen w-full bg-[#f7fafc]">
+        {/* Mission Section */}
+        <section className="w-full py-24 bg-[#1E2A38] text-white text-center flex flex-col items-center justify-center px-6 sm:px-0">
+          <h1 className="text-5xl sm:text-6xl font-extrabold mb-10">Our Mission & People</h1>
+          <p className="text-xl sm:text-2xl max-w-3xl mx-auto font-semibold mb-6">
+            The longevity field is full of potential but it&apos;s fragmented, confusing, and too often seen as something just for scientists or billionaires. A gap persists between academic research and public understanding, creating confusion and inequality.
           </p>
-          <p className="text-2xl text-gray-900">
-            Our mission is to <span className="font-bold" style={{ color: '#3d9f41' }}>democratize longevity</span> by building the world&apos;s most <span className="font-bold">trusted, accessible</span>, and <span className="font-bold">comprehensive</span> resource, bridging the gap between scientific discovery and daily life
-          </p>
-        </div>
-      </section>
-      {/* Secretariat (dark) */}
-      <TeamSection
-        title="The Secretariat"
-        description="The Secretariat is the operational body entrusted with carrying out our charter. This team is responsible for the project&apos;s strategic direction, content curation, and community engagement."
-        people={people.secretariat}
-        bg="dark"
-      />
-      {/* Scientific Advisory Board (light) */}
-      <TeamSection
-        title="The Scientific Advisory Board"
-        description="Our Scientific Advisory Board is composed of world-leading researchers, clinicians, and experts in the field of longevity. They provide independent expert guidance and rigorously review our content to ensure it meets the highest standards of scientific accuracy and integrity. Their oversight is crucial to our commitment to providing trusted information."
-        people={people.advisory}
-        bg="light"
-      />
-      {/* Strategic Advisors (dark) */}
-      <TeamSection
-        title="Strategic Advisors"
-        description="This group is composed of leaders from the worlds of investment, technology, and public advocacy. They provide critical insight and high-level guidance to help us grow our impact, navigate the evolving landscape of the longevity industry, and achieve our long-term mission."
-        people={people.strategic}
-        bg="dark"
-      />
-      {/* Contributors (light) */}
-      <TeamSection
-        title="Contributors"
-        description="Our work is brought to life by a dedicated and growing team of science writers, researchers, and content creators. They are instrumental in translating complex topics into clear, engaging, and accessible articles for our community. We are grateful for their diverse voices and perspectives."
-        people={people.contributors}
-        bg="light"
-      />
-    </div>
+        </section>
+        {/* White Section with Green, more spacious */}
+        <section className="w-full py-24 bg-white/80 text-center">
+          <div className="max-w-4xl mx-auto px-6">
+            <p className="mb-10 text-2xl text-gray-900">
+              We believe the pursuit of a longer, healthier life is a <span className="font-semibold" style={{ color: '#3d9f41' }}>fundamental right</span>
+            </p>
+            <p className="text-2xl text-gray-900">
+              Our mission is to <span className="font-bold" style={{ color: '#3d9f41' }}>democratize longevity</span> by building the world&apos;s most <span className="font-bold">trusted, accessible</span>, and <span className="font-bold">comprehensive</span> resource, bridging the gap between scientific discovery and daily life
+            </p>
+          </div>
+        </section>
+        {/* Secretariat (dark) */}
+        <TeamSection
+          title="The Secretariat"
+          description="The Secretariat is the operational body entrusted with carrying out our charter. This team is responsible for the project&apos;s strategic direction, content curation, and community engagement."
+          people={people.secretariat}
+          bg="dark"
+        />
+        {/* Scientific Advisory Board (light) */}
+        <TeamSection
+          title="The Scientific Advisory Board"
+          description="Our Scientific Advisory Board is composed of world-leading researchers, clinicians, and experts in the field of longevity. They provide independent expert guidance and rigorously review our content to ensure it meets the highest standards of scientific accuracy and integrity. Their oversight is crucial to our commitment to providing trusted information."
+          people={people.advisory}
+          bg="light"
+        />
+        {/* Strategic Advisors (dark) */}
+        <TeamSection
+          title="Strategic Advisors"
+          description="This group is composed of leaders from the worlds of investment, technology, and public advocacy. They provide critical insight and high-level guidance to help us grow our impact, navigate the evolving landscape of the longevity industry, and achieve our long-term mission."
+          people={people.strategic}
+          bg="dark"
+        />
+        {/* Contributors (light) */}
+        <TeamSection
+          title="Contributors"
+          description="Our work is brought to life by a dedicated and growing team of science writers, researchers, and content creators. They are instrumental in translating complex topics into clear, engaging, and accessible articles for our community. We are grateful for their diverse voices and perspectives."
+          people={people.contributors}
+          bg="light"
+        />
+      </div>
+    </FadeInUp>
   );
 } 
