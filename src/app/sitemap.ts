@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/blog',
     '/get-involved',
-    '/longevity-lifestyle',
+    '/apply-longevity',
     '/longevity-map',
     '/whos-who',
   ].map((route) => ({
