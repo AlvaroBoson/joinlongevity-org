@@ -6,7 +6,18 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      {
+        source: '/longevity-blog/:path*',
+        destination: 'http://localhost:3001/:path*',
+      },
+      {
+        source: '/_next/static/:path*',
+        destination: 'http://localhost:3001/_next/static/:path*',
+      }
+    ]
+  },
 };
 
 export default withBundleAnalyzer(nextConfig);

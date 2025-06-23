@@ -9,7 +9,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/whos-who", label: "Who\'s Who" },
   { href: "/get-involved", label: "Get Involved" },
-  { href: "/blog", label: "Blog" },
+  { href: "/longevity-blog", label: "Blog" },
   { href: "/about", label: "About" },
 ];
 
