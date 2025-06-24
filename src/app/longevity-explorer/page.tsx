@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
-import WhosWhoClient from '@/components/WhosWhoClient';
+import LongevityExplorerClient from '@/components/LongevityExplorerClient';
 
 export const metadata: Metadata = {
-  title: "Who's Who in Longevity: A Curated Directory with Trust Scores | Join Longevity",
-  description: "Navigate the longevity space with confidence. Explore our curated directory of the most influential people, companies, and projects, complete with community-driven trust scores to help you find who to follow.",
-  keywords: ["who's who in longevity", "longevity leaders", "longevity companies", "longevity investors", "healthspan experts", "trustworthy longevity sources"],
+  title: "Longevity Explorer: A Curated Directory | Join Longevity",
+  description: "Navigate the longevity space with confidence. Explore our curated directory of the most influential people, companies, and projects, complete with evidence levels to help you find who to follow.",
+  keywords: ["longevity explorer", "longevity leaders", "longevity companies", "longevity investors", "healthspan experts", "trustworthy longevity sources"],
   openGraph: {
-    title: "Who's Who in Longevity: Experts, Researchers & Projects | Join Longevity",
+    title: "Longevity Explorer: Experts, Researchers & Projects | Join Longevity",
     description: "Navigate the longevity space with our curated guide to the key people, projects, and communities. Find trustworthy sources with Join Longevity.",
-    url: "https://joinlongevity.org/whos-who",
+    url: "https://joinlongevity.org/longevity-explorer",
     siteName: "Join Longevity",
     images: [
       {
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Who's Who in Longevity: Experts, Researchers & Projects | Join Longevity",
+    title: "Longevity Explorer: Experts, Researchers & Projects | Join Longevity",
     description: "Navigate the longevity space with our curated guide to the key people, projects, and communities. Find trustworthy sources with Join Longevity.",
     images: ["https://joinlongevity.org/image/longevity.webp"],
     creator: "@joinlongevity",
   },
 };
 
-export default function WhosWhoPage() {
-  return <WhosWhoClient />;
+export default function LongevityExplorerPage() {
+  return <LongevityExplorerClient />;
 } 

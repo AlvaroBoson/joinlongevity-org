@@ -2,20 +2,19 @@ import { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = siteConfig.lastUpdated ? new Date(siteConfig.lastUpdated) : new Date();
-  
   const routes = [
-    '/',
-    '/about',
-    '/blog',
-    '/get-involved',
-    '/apply-longevity',
-    '/longevity-map',
-    '/whos-who',
+    '', 
+    '/about', 
+    '/apply-longevity', 
+    '/get-involved', 
+    '/introduction', 
+    '/longevity-map', 
+    '/longevity-explorer',
+    '/projects-jobs'
   ].map((route) => ({
-    url: `https://www.joinlongevity.org${route}`,
-    lastModified,
+    url: `${siteConfig.url}${route}`,
+    lastModified: new Date().toISOString(),
   }));
-
+ 
   return routes;
-} 
+}

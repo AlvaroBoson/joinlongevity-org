@@ -55,13 +55,15 @@ export default function RootLayout({
                 <Link href="/" className="hover:text-green-400">Home</Link>
                 <Link href="/longevity-map" className="hover:text-green-400">The Longevity Map</Link>
                 <Link href="/get-involved" className="hover:text-green-400">Get Involved</Link>
+                <Link href="/apply-longevity" className="hover:text-green-400">Apply Longevity</Link>
+                <Link href="/longevity-explorer" className="hover:text-green-400">Longevity Explorer</Link>
                 <Link href="/longevity-lifestyle" className="hover:text-green-400">Longevity Lifestyle</Link>
                 <Link href="/#faq" className="hover:text-green-400">FAQ</Link>
                 <Link href="/blog#join-biotech-blog" className="hover:text-green-400">Newsletter Signup</Link>
                 <Link href="/#news-opportunities" className="hover:text-green-400">News & Opportunities</Link>
-                <Link href="/whos-who" className="hover:text-green-400">Who&apos;s Who in Longevity</Link>
+                <Link href="/longevity-explorer" className="hover:text-green-400">Longevity Explorer</Link>
                 <Link href="/blog#jl-projects" className="hover:text-green-400">Join Our Projects</Link>
-                <Link href="/about" className="hover:text-green-400">About Join Longevity</Link>
+                <Link href="/about" className="hover:text-green-400">About</Link>
                 <Link href="mailto:alex@joinlongevity.org" className="hover:text-green-400">Contact</Link>
               </div>
             </div>

@@ -272,15 +272,13 @@ export default function HomePageClient() {
       {/* Who's Who in Longevity Section - Animations temporarily removed */}
       <FadeInUp as="section" className="py-28 bg-[#1E2A38]">
         <div className="container mx-auto px-4 sm:px-12 lg:px-24 flex flex-col items-center text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">Who&apos;s Who in Longevity</h2>
-          <p className="font-bold text-gray-100 mb-2 text-lg lg:text-xl"><span className="text-[#64BC6E]">Who can you trust</span> and follow in longevity?</p>
-          <p className="text-lg lg:text-xl text-gray-300 mb-10 max-w-2xl">
-            Everyone seems to be saying something different, and it&apos;s hard to know who&apos;s credible.<br />
-            This is a curated list of the people, organizations, and communities shaping the field, designed to help you find the right ones to follow based on your goals.
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">Longevity Explorer</h2>
+          <p className="text-lg lg:text-xl text-gray-300 mb-10 max-w-3xl">
+            Groundbreaking science mixes with bold claims and endless headlines. How do you separate the signal from the noise? Explore the key researchers, companies, and scientific approaches—all classified by their real-world level of evidence. Find what&apos;s real, what&apos;s promising, and what&apos;s right for you.
           </p>
           {/* ADDING: Mobile-only See full list button, right under the description */}
-          <Link href="/whos-who">
-            <button className="jl-btn mb-10 text-lg font-semibold shadow block md:hidden">See full list</button>
+          <Link href="/longevity-explorer">
+            <button className="jl-btn mb-10 text-lg font-semibold shadow block md:hidden">Explore the Landscape</button>
           </Link>
 
           {/* Images here are not directly animated with framer-motion wrappers in this section, so they are retained */}
@@ -322,8 +320,8 @@ export default function HomePageClient() {
               <span className="font-medium text-base mt-2 text-white">Organizations</span>
             </div>
           </div>
-          <Link href="/whos-who">
-            <button className="jl-btn mt-4 text-lg font-semibold shadow block">See full list</button>
+          <Link href="/longevity-explorer">
+            <button className="jl-btn mt-4 text-lg font-semibold shadow block">Explore the Landscape</button>
           </Link>
         </div>
       </FadeInUp>

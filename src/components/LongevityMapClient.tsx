@@ -306,7 +306,7 @@ export default function LongevityMapClient() {
           {/* Who's Who Link */}
           <motion.div variants={fadeInUp} className="text-center">
             <p className="text-gray-300 text-lg mb-4">
-              Want to know more about <Link href="/whos-who" className="text-[#64BC6E] underline cursor-pointer hover:text-[#4fa65b] transition-colors">who&apos;s who</Link>?
+              Want to know more about the major players? Check out our <Link href="/longevity-explorer" className="text-[#64BC6E] underline cursor-pointer hover:text-[#4fa65b] transition-colors">Longevity Explorer</Link>.
             </p>
             <p className="text-sm text-gray-400">
               Updated map is coming soon. Last updated: {siteConfig.lastUpdated}
@@ -385,12 +385,29 @@ export default function LongevityMapClient() {
               href="/get-involved"
             />
             <FeatureCard
-              title="Who's Who in Longevity"
+              title="Longevity Explorer"
               description="Find trusted researchers, advocates, and communities to follow in the longevity space."
               icon="/image/homepage/compass.svg"
-              href="/whos-who"
+              href="/longevity-explorer"
             />
           </div>
+        </div>
+      </FadeInUp>
+
+      {/* Find Your Place in the Ecosystem Section */}
+      <FadeInUp as="section" className="py-20 bg-[#1E2A38]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+          <h2 className="text-3xl font-bold mb-4 text-white">Find Your Place in the Ecosystem</h2>
+          <p className="text-lg text-gray-300 mb-8">
+            The map gives you the big picture. Now it&apos;s time to zoom in.
+            Explore the people, projects, and companies in our <Link href="/longevity-explorer" className="text-[#64BC6E] underline cursor-pointer hover:text-[#4fa65b] transition-colors">Longevity Explorer</Link>.
+          </p>
+          <Link 
+            href="/longevity-explorer"
+            className="inline-block bg-[#64BC6E] text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-[#5aa864] transition-all duration-300 shadow-lg"
+          >
+            Explore the Landscape
+          </Link>
         </div>
       </FadeInUp>
     </div>

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
 export interface Filters {
-  categories: string[];
-  focusAreas: string[];
-  types: string[];
-  trustScores: string[];
+  category: string[];
+  approach: string[];
+  evidenceLevel: string[];
 }
 
 interface FilterBarProps {
@@ -19,17 +18,24 @@ const FilterBar: React.FC<FilterBarProps> = ({
   onClearFilters,
 }) => {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
-    categories: false,
-    focusAreas: false,
-    types: false,
-    trustScores: false,
+    category: false,
+    approach: false,
+    evidenceLevel: false,
   });
 
   const filterOptions = {
-    categories: ['Researchers', 'Biohackers', 'Creators', 'Advocates', 'Startups', 'Communities', 'Investors', 'Influencers'],
-    focusAreas: ['Healthspan', 'Life Extension', 'Immortality', 'Supplements', 'AI-biotech', 'Regeneration'],
-    types: ['Person', 'Org', 'Platform'],
-    trustScores: ['High', 'Medium', 'Low', 'Unrated'],
+    category: [
+      'Researcher', 'Clinician (MD)', 'Startup / Company', 'Investor / VC', 
+      'Influencer / Creator', 'Community / Platform', 'Conference'
+    ],
+    approach: [
+      'Senolytics', 'Cellular Reprogramming', 'Metabolic Health', 
+      'Diagnostics & Biomarkers', 'Gene Therapies', 'Damage Repair (SENS)'
+    ],
+    evidenceLevel: [
+      'Human Data', 'Published Research', 'Early Stage / Theoretical', 
+      'Community', 'Anecdotal'
+    ],
   };
 
   const toggleSection = (section: string) => {
@@ -49,23 +55,23 @@ const FilterBar: React.FC<FilterBarProps> = ({
     <div className="w-full bg-[#1a2330]/50 backdrop-blur-sm border border-[#64BC6E]/10 rounded-xl p-6">
       <div className="flex flex-col space-y-6">
         {/* Filter Groups */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Category Filter */}
           <div className="border border-[#64BC6E]/10 rounded-lg overflow-hidden" style={{ alignSelf: 'start' }}>
             <button
-              onClick={() => toggleSection('categories')}
+              onClick={() => toggleSection('category')}
               className="w-full flex items-center justify-between p-3 bg-[#1E2A38]/80 hover:bg-[#1E2A38] transition-colors"
             >
               <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-gray-300">Category</span>
-                {getSelectedCount('categories') > 0 && (
+                {getSelectedCount('category') > 0 && (
                   <span className="px-2 py-0.5 text-xs rounded-full bg-[#64BC6E]/20 text-[#64BC6E]">
-                    {getSelectedCount('categories')}
+                    {getSelectedCount('category')}
                   </span>
                 )}
               </div>
               <svg
-                className={`w-5 h-5 text-gray-400 transform transition-transform ${openSections.categories ? 'rotate-180' : ''}`}
+                className={`w-5 h-5 text-gray-400 transform transition-transform ${openSections.category ? 'rotate-180' : ''}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -73,14 +79,14 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className={`transition-all duration-200 ${openSections.categories ? 'max-h-96' : 'max-h-0'} overflow-hidden`}>
+            <div className={`transition-all duration-200 ${openSections.category ? 'max-h-96' : 'max-h-0'} overflow-hidden`}>
               <div className="flex flex-wrap gap-2 p-3">
-                {filterOptions.categories.map((category) => (
+                {filterOptions.category.map((category) => (
                   <button
                     key={category}
-                    onClick={() => onFilterChange('categories', category)}
+                    onClick={() => onFilterChange('category', category)}
                     className={`px-3 py-1.5 text-sm rounded-full transition-all duration-200 
-                      ${selectedFilters.categories.includes(category)
+                      ${selectedFilters.category.includes(category)
                         ? 'bg-[#64BC6E] text-white'
                         : 'bg-[#64BC6E]/10 text-[#64BC6E] hover:bg-[#64BC6E]/20'
                       }`}
@@ -92,22 +98,22 @@ const FilterBar: React.FC<FilterBarProps> = ({
             </div>
           </div>
 
-          {/* Focus Area Filter */}
+          {/* Approach Filter */}
           <div className="border border-[#64BC6E]/10 rounded-lg overflow-hidden" style={{ alignSelf: 'start' }}>
             <button
-              onClick={() => toggleSection('focusAreas')}
+              onClick={() => toggleSection('approach')}
               className="w-full flex items-center justify-between p-3 bg-[#1E2A38]/80 hover:bg-[#1E2A38] transition-colors"
             >
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-300">Focus Area</span>
-                {getSelectedCount('focusAreas') > 0 && (
+                <span className="text-sm font-medium text-gray-300">Approach</span>
+                {getSelectedCount('approach') > 0 && (
                   <span className="px-2 py-0.5 text-xs rounded-full bg-[#64BC6E]/20 text-[#64BC6E]">
-                    {getSelectedCount('focusAreas')}
+                    {getSelectedCount('approach')}
                   </span>
                 )}
               </div>
               <svg
-                className={`w-5 h-5 text-gray-400 transform transition-transform ${openSections.focusAreas ? 'rotate-180' : ''}`}
+                className={`w-5 h-5 text-gray-400 transform transition-transform ${openSections.approach ? 'rotate-180' : ''}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -115,14 +121,14 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className={`transition-all duration-200 ${openSections.focusAreas ? 'max-h-96' : 'max-h-0'} overflow-hidden`}>
+            <div className={`transition-all duration-200 ${openSections.approach ? 'max-h-96' : 'max-h-0'} overflow-hidden`}>
               <div className="flex flex-wrap gap-2 p-3">
-                {filterOptions.focusAreas.map((area) => (
+                {filterOptions.approach.map((area) => (
                   <button
                     key={area}
-                    onClick={() => onFilterChange('focusAreas', area)}
+                    onClick={() => onFilterChange('approach', area)}
                     className={`px-3 py-1.5 text-sm rounded-full transition-all duration-200 
-                      ${selectedFilters.focusAreas.includes(area)
+                      ${selectedFilters.approach.includes(area)
                         ? 'bg-[#64BC6E] text-white'
                         : 'bg-[#64BC6E]/10 text-[#64BC6E] hover:bg-[#64BC6E]/20'
                       }`}
@@ -134,22 +140,22 @@ const FilterBar: React.FC<FilterBarProps> = ({
             </div>
           </div>
 
-          {/* Type Filter */}
+          {/* Evidence Level Filter */}
           <div className="border border-[#64BC6E]/10 rounded-lg overflow-hidden" style={{ alignSelf: 'start' }}>
             <button
-              onClick={() => toggleSection('types')}
+              onClick={() => toggleSection('evidenceLevel')}
               className="w-full flex items-center justify-between p-3 bg-[#1E2A38]/80 hover:bg-[#1E2A38] transition-colors"
             >
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-300">Type</span>
-                {getSelectedCount('types') > 0 && (
+                <span className="text-sm font-medium text-gray-300">Evidence Level</span>
+                {getSelectedCount('evidenceLevel') > 0 && (
                   <span className="px-2 py-0.5 text-xs rounded-full bg-[#64BC6E]/20 text-[#64BC6E]">
-                    {getSelectedCount('types')}
+                    {getSelectedCount('evidenceLevel')}
                   </span>
                 )}
               </div>
               <svg
-                className={`w-5 h-5 text-gray-400 transform transition-transform ${openSections.types ? 'rotate-180' : ''}`}
+                className={`w-5 h-5 text-gray-400 transform transition-transform ${openSections.evidenceLevel ? 'rotate-180' : ''}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -157,56 +163,14 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className={`transition-all duration-200 ${openSections.types ? 'max-h-96' : 'max-h-0'} overflow-hidden`}>
+            <div className={`transition-all duration-200 ${openSections.evidenceLevel ? 'max-h-96' : 'max-h-0'} overflow-hidden`}>
               <div className="flex flex-wrap gap-2 p-3">
-                {filterOptions.types.map((type) => (
-                  <button
-                    key={type}
-                    onClick={() => onFilterChange('types', type)}
-                    className={`px-3 py-1.5 text-sm rounded-full transition-all duration-200 
-                      ${selectedFilters.types.includes(type)
-                        ? 'bg-[#64BC6E] text-white'
-                        : 'bg-[#64BC6E]/10 text-[#64BC6E] hover:bg-[#64BC6E]/20'
-                      }`}
-                  >
-                    {type}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Trust Score Filter */}
-          <div className="border border-[#64BC6E]/10 rounded-lg overflow-hidden" style={{ alignSelf: 'start' }}>
-            <button
-              onClick={() => toggleSection('trustScores')}
-              className="w-full flex items-center justify-between p-3 bg-[#1E2A38]/80 hover:bg-[#1E2A38] transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-300">Trust Score</span>
-                {getSelectedCount('trustScores') > 0 && (
-                  <span className="px-2 py-0.5 text-xs rounded-full bg-[#64BC6E]/20 text-[#64BC6E]">
-                    {getSelectedCount('trustScores')}
-                  </span>
-                )}
-              </div>
-              <svg
-                className={`w-5 h-5 text-gray-400 transform transition-transform ${openSections.trustScores ? 'rotate-180' : ''}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div className={`transition-all duration-200 ${openSections.trustScores ? 'max-h-96' : 'max-h-0'} overflow-hidden`}>
-              <div className="flex flex-wrap gap-2 p-3">
-                {filterOptions.trustScores.map((score) => (
+                {filterOptions.evidenceLevel.map((score) => (
                   <button
                     key={score}
-                    onClick={() => onFilterChange('trustScores', score)}
+                    onClick={() => onFilterChange('evidenceLevel', score)}
                     className={`px-3 py-1.5 text-sm rounded-full transition-all duration-200 
-                      ${selectedFilters.trustScores.includes(score)
+                      ${selectedFilters.evidenceLevel.includes(score)
                         ? 'bg-[#64BC6E] text-white'
                         : 'bg-[#64BC6E]/10 text-[#64BC6E] hover:bg-[#64BC6E]/20'
                       }`}

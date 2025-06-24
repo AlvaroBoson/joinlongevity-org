@@ -194,12 +194,17 @@ export default function GetInvolvedClient() {
                     <p className="text-gray-300 mb-6 text-lg">
                       The easiest way to enter longevity is by showing up. Many conferences are friendly, volunteer-friendly, and full of opportunities. Whether you want to network, or find collaborators, this is where to start.
                     </p>
-                    <p className="text-gray-300 text-lg">
-                      Find out more about the reputation of these conferences at{" "}
-                      <Link href="/whos-who" className="text-[#64BC6E] underline hover:text-[#82c98a] transition-colors">
-                        Who&apos;s Who
-                      </Link>
-                    </p>
+                    <div className="text-lg text-gray-300 leading-relaxed">
+                      <p className="mb-4">
+                        The longevity ecosystem is filled with brilliant researchers, ambitious startups, and passionate advocates. Knowing who to follow can make all the difference. Our <Link href="/longevity-explorer" className="text-[#64BC6E] underline hover:text-[#82c98a] transition-colors">Longevity Explorer</Link> is a curated directory designed to help you navigate this landscape.
+                      </p>
+                      <p>
+                        Find out more about the reputation of these conferences in our{" "}
+                        <Link href="/longevity-explorer" className="text-[#64BC6E] underline hover:text-[#82c98a] transition-colors">
+                          Longevity Explorer
+                        </Link>.
+                      </p>
+                    </div>
                   </motion.div>
                   {/* Staggered image grid */}
                   <StaggerChildren className="flex-1" key={pathname + "-event-images"}>

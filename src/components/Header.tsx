@@ -7,7 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/whos-who", label: "Who\'s Who" },
+  { href: "/apply-longevity", label: "Apply Longevity" },
+  { href: "/longevity-map", label: "Map" },
+  { href: "/longevity-explorer", label: "Explorer" },
   { href: "/get-involved", label: "Get Involved" },
   { href: "https://blog.joinlongevity.org", label: "Blog" },
   { href: "/about", label: "About" },

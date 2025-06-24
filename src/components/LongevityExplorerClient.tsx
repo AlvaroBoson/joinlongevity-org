@@ -18,12 +18,11 @@ const fadeInUp = {
   }
 };
 
-export default function WhosWhoClient() {
+export default function LongevityExplorerClient() {
   const [selectedFilters, setSelectedFilters] = useState<Filters>({
-    categories: [],
-    focusAreas: [],
-    types: [],
-    trustScores: [],
+    category: [],
+    approach: [],
+    evidenceLevel: [],
   });
 
   const handleFilterChange = (filterType: keyof Filters, value: string) => {
@@ -40,25 +39,21 @@ export default function WhosWhoClient() {
 
   const clearFilters = () => {
     setSelectedFilters({
-      categories: [],
-      focusAreas: [],
-      types: [],
-      trustScores: [],
+      category: [],
+      approach: [],
+      evidenceLevel: [],
     });
   };
 
   const filteredProfiles = profiles.filter(profile => {
-    // For each filter category, check if ALL selected filters are present in the profile's corresponding array
-    const categoryMatch = selectedFilters.categories.length === 0 || 
-      selectedFilters.categories.every(category => profile.categories.includes(category));
-    const focusAreaMatch = selectedFilters.focusAreas.length === 0 || 
-      selectedFilters.focusAreas.every(area => profile.focusAreas.includes(area));
-    const typeMatch = selectedFilters.types.length === 0 || 
-      selectedFilters.types.every(type => profile.type === type);
-    const trustMatch = selectedFilters.trustScores.length === 0 || 
-      selectedFilters.trustScores.every(score => profile.trustLevel === score);
+    const categoryMatch = selectedFilters.category.length === 0 || 
+      selectedFilters.category.some(category => profile.category.includes(category));
+    const approachMatch = selectedFilters.approach.length === 0 || 
+      selectedFilters.approach.some(area => profile.approach.includes(area));
+    const evidenceLevelMatch = selectedFilters.evidenceLevel.length === 0 || 
+      selectedFilters.evidenceLevel.includes(profile.evidenceLevel);
 
-    return categoryMatch && focusAreaMatch && typeMatch && trustMatch;
+    return categoryMatch && approachMatch && evidenceLevelMatch;
   });
 
   return (
@@ -103,14 +98,14 @@ export default function WhosWhoClient() {
                 </motion.div>
               </div>
               
-              <h1 className="text-4xl font-bold mb-8 tracking-tight">
-                <span className="text-[#64BC6E]">Who&apos;s Who</span>
-                <span className="text-white"> in Longevity</span>
+              <h1 className="text-4xl font-bold mb-8 tracking-tight text-white">
+                <span className="text-[#64BC6E]">Longevity</span> Explorer
               </h1>
+              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                From university labs to Silicon Valley startups, the field is moving fast. We&apos;ve organized the entire ecosystem in one place to help you understand not just who is doing what, but how their work is validated.
+              </p>
               <p className="text-lg text-gray-300 leading-relaxed mb-12">
-                Who can you trust and follow in longevity? Everyone&apos;s saying something different. 
-                We help you find the people, projects, and communities that align with your goals—curated 
-                by the Join Longevity team and the broader community.
+                Use the filters to navigate the landscape. Search by Category (like Researchers or Startups), filter by scientific Approach (like Cellular Reprogramming), and sort by Evidence Level to see the difference between established science and early-stage theories.
               </p>
               {/* Minimal Scroll Indicator */}
               <motion.div
