@@ -8,6 +8,8 @@ import FadeInUp from "@/components/FadeInUp";
 import StaggerChildren from "@/components/StaggerChildren";
 import { siteConfig } from "@/config/site";
 import FeatureCard from "@/components/FeatureCard";
+import LongevityForceGraph from './LongevityForceGraph';
+import { legendData } from '@/data/longevityMapData';
 
 interface Particle {
   x: number;
@@ -293,14 +295,43 @@ export default function LongevityMapClient() {
           </h2>
           
           {/* Diagram Image */}
-          <motion.div variants={fadeInUp} className="max-w-4xl mx-auto mb-8">
-            <Image
-              src="/image/longevitymap/realmap.webp"
-              alt="Reality Diagram"
-              width={1200}
-              height={800}
-              className="w-full h-auto"
-            />
+          <motion.div variants={fadeInUp} className="max-w-4xl mx-auto mb-8 flex flex-col items-center border border-gray-700/50 rounded-lg p-4">
+            <LongevityForceGraph />
+            <div className="flex flex-col items-center mt-6 space-y-4">
+              {/* Node Legend */}
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-2">Nodes</h4>
+                <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                  {legendData.map(({ group, color }) => (
+                    <div key={group} className="flex items-center space-x-2">
+                      <span className="h-3 w-3 rounded-full" style={{ backgroundColor: color }}></span>
+                      <span className="text-sm text-gray-300">{group}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Link Legend */}
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-2">Connections</h4>
+                <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                  <div className="flex items-center space-x-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><line x1="0" y1="12" x2="24" y2="12" stroke="white" strokeWidth="2"/></svg>
+                    <span className="text-sm text-gray-300">Formal</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><line x1="0" y1="12" x2="24" y2="12" stroke="#3B82F6" strokeWidth="2" strokeDasharray="5,5"/></svg>
+                    <span className="text-sm text-gray-300">Social</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><line x1="0" y1="12" x2="24" y2="12" stroke="#64BC6E" strokeWidth="2" strokeDasharray="2,3"/></svg>
+                    <span className="text-sm text-gray-300">Ecosystem</span>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-400 mt-4">
+                  Tip: You can pan and zoom the map by dragging and scrolling.
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           {/* Who's Who Link */}
@@ -391,23 +422,6 @@ export default function LongevityMapClient() {
               href="/longevity-explorer"
             />
           </div>
-        </div>
-      </FadeInUp>
-
-      {/* Find Your Place in the Ecosystem Section */}
-      <FadeInUp as="section" className="py-20 bg-[#1E2A38]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white">Find Your Place in the Ecosystem</h2>
-          <p className="text-lg text-gray-300 mb-8">
-            The map gives you the big picture. Now it&apos;s time to zoom in.
-            Explore the people, projects, and companies in our <Link href="/longevity-explorer" className="text-[#64BC6E] underline cursor-pointer hover:text-[#4fa65b] transition-colors">Longevity Explorer</Link>.
-          </p>
-          <Link 
-            href="/longevity-explorer"
-            className="inline-block bg-[#64BC6E] text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-[#5aa864] transition-all duration-300 shadow-lg"
-          >
-            Explore the Landscape
-          </Link>
         </div>
       </FadeInUp>
     </div>
