@@ -26,19 +26,29 @@ interface LinkObject {
 const LongevityForceGraph = () => {
   const fgRef = useRef(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(800);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
 
   useEffect(() => {
+    const observer = new ResizeObserver(entries => {
+      const entry = entries[0];
+      if (entry) {
+        setWidth(entry.contentRect.width);
+        setHeight(entry.contentRect.height);
+      }
+    });
+
     if (containerRef.current) {
-      setWidth(containerRef.current.offsetWidth);
+      observer.observe(containerRef.current);
     }
-    const handleResize = () => {
-      if (containerRef.current) {
-        setWidth(containerRef.current.offsetWidth);
+
+    const currentContainer = containerRef.current;
+
+    return () => {
+      if (currentContainer) {
+        observer.unobserve(currentContainer);
       }
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
@@ -46,6 +56,8 @@ const LongevityForceGraph = () => {
     const fg = fgRef.current as any;
     if (fg) {
       fg.zoomToFit(400, 20); // Zoom to fit with padding
+      fg.d3Force('charge').strength(-300);
+      fg.d3Force('link').distance(100);
     }
   }, []);
   
@@ -64,12 +76,12 @@ const LongevityForceGraph = () => {
     // Draw text
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillStyle = '#FFFFFF';
+    ctx.fillStyle = '#1A202C'; // Dark text for light background
     ctx.fillText(label, n.x ?? 0, (n.y ?? 0) + n.val + 8); // Position text below the node
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full">
+    <div ref={containerRef} className="w-full h-full">
       <ForceGraph2D
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ref={fgRef as any}
@@ -79,24 +91,15 @@ const LongevityForceGraph = () => {
         linkColor={(link: object) => {
           const l = link as LinkObject;
           switch (l.type) {
-            case 'formal': return 'white';
-            case 'social': return '#3B82F6'; // Blue
-            case 'ecosystem': return '#64BC6E'; // Green
-            default: return 'rgba(255,255,255,0.2)';
+            case 'formal': return '#2B6CB0'; // Dark Blue
+            case 'indirect': return '#4A5568'; // Dark Gray
+            default: return 'rgba(0,0,0,0.2)';
           }
         }}
-        linkLineDash={(link: object) => {
-          const l = link as LinkObject;
-          switch (l.type) {
-            case 'formal': return []; // Solid
-            case 'social': return [5, 5]; // Dashed
-            case 'ecosystem': return [2, 3]; // Dotted
-            default: return [];
-          }
-        }}
+        linkLineDash={() => []} // All lines are solid
         linkWidth={1}
         width={width}
-        height={600}
+        height={height}
         backgroundColor="rgba(26, 31, 46, 0)" // transparent
       />
     </div>

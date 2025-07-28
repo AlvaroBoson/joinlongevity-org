@@ -28,35 +28,33 @@ export const graphData = {
     { "id": "David Sinclair", "group": "Person", "val": 5, "color": "#F97316" }
   ],
   "links": [
-    // --- Formal Links (Partnerships, Funding, Sponsorship) ---
+    // --- Direct Partnerships ---
     { "source": "Hevolution", "target": "Buck Institute", "type": "formal" },
     { "source": "Hevolution", "target": "VitaDAO", "type": "formal" },
     { "source": "LEV Foundation", "target": "Longevity Biotech Fellowship", "type": "formal" },
     { "source": "Open Longevity", "target": "SAY FOREVER!", "type": "formal" }, // Shared key person
     { "source": "TransVision", "target": "HealthGevity", "type": "formal" }, // Listed as partner/sponsor
 
-    // --- Social Links (Shared People, Communication, Ideology) ---
-    { "source": "LEV Foundation", "target": "Vitalism", "type": "social" },
-    { "source": "Vitalism", "target": "LongX", "type": "social" },
-    { "source": "Longevity Biotech Fellowship", "target": "LongX", "type": "social" },
-    { "source": "VitaDAO", "target": "Vitalism", "type": "social" }, // Via Laurence Ion
-    { "source": "SAY FOREVER!", "target": "Longevity Biotech Fellowship", "type": "social" }, // Via Anastasia & Mark
-
-    // --- Ecosystem Links (Conference Hubs, Community Presence) ---
-    { "source": "ARDD 2025", "target": "LEV Foundation", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "Longevity Summit Dublin", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "Hevolution", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "Altos Labs", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "Buck Institute", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "SENS Research Foundation", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "Vitalism", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "LongX", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "Longevity Biotech Fellowship", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "Open Longevity", "type": "ecosystem" },
-    { "source": "ARDD 2025", "target": "David Sinclair", "type": "ecosystem" },
-    { "source": "RAAD Festival", "target": "Altos Labs", "type": "ecosystem" },
-    { "source": "RAAD Festival", "target": "Biohackers Magazine", "type": "ecosystem" },
-    { "source": "TransVision", "target": "SEMAL", "type": "ecosystem" } // Jose speaks at SEMAL
+    // --- Indirect Connections / Awareness ---
+    { "source": "LEV Foundation", "target": "Vitalism", "type": "indirect" },
+    { "source": "Vitalism", "target": "LongX", "type": "indirect" },
+    { "source": "Longevity Biotech Fellowship", "target": "LongX", "type": "indirect" },
+    { "source": "VitaDAO", "target": "Vitalism", "type": "indirect" }, // Via Laurence Ion
+    { "source": "SAY FOREVER!", "target": "Longevity Biotech Fellowship", "type": "indirect" }, // Via Anastasia & Mark
+    { "source": "ARDD 2025", "target": "LEV Foundation", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "Longevity Summit Dublin", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "Hevolution", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "Altos Labs", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "Buck Institute", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "SENS Research Foundation", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "Vitalism", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "LongX", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "Longevity Biotech Fellowship", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "Open Longevity", "type": "indirect" },
+    { "source": "ARDD 2025", "target": "David Sinclair", "type": "indirect" },
+    { "source": "RAAD Festival", "target": "Altos Labs", "type": "indirect" },
+    { "source": "RAAD Festival", "target": "Biohackers Magazine", "type": "indirect" },
+    { "source": "TransVision", "target": "SEMAL", "type": "indirect" } // Jose speaks at SEMAL
   ]
 };
 

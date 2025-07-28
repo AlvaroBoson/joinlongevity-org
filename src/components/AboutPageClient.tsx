@@ -10,7 +10,7 @@ const people = {
     { name: "Peter", role: "Strategic Advisor & Industry Analyst", description: "Building a longevity-focused investment fund while staying at the forefront of biotech news, trends, and breakthroughs.", image: "/image/about/peter.webp" },
   ],
   advisory: [
-    { name: "Name", role: "", description: "" },
+    { name: "Aubrey de Grey", role: "President & CSO, LEV Foundation | Advisor", description: "Dr. Aubrey de Grey is internationally recognised as a biomedical gerontologist, author, and powerful advocate for treating aging as a medical condition. He is the architect of the SENS and the President of the LEV Foundation. He has co-founded multiple key non-profits and actively supports projects designed to accelerate the advance of the longevity field.", image: "/image/about/aubrey-de-grey.webp" },
     { name: "Name", role: "", description: "" },
     { name: "Name", role: "", description: "" },
   ],
@@ -20,7 +20,7 @@ const people = {
     { name: "Name", role: "", description: "" },
   ],
   contributors: [
-    { name: "Mirza", role: "Scientific Writer", description: "With a background in pharmacology, Mirza contributes articles to our blog, helping to make complex longevity topics accessible to a wider audience.", image: "/image/about/mirza.webp" },
+    { name: "Mirza", role: "Science Writer", description: "With a background in pharmacy, Mirza contributes articles to our blog, helping to make complex longevity topics accessible to a wider audience.", image: "/image/about/mirza.webp" },
     { name: "Name", role: "", description: "" },
     { name: "Name", role: "", description: "" },
   ],

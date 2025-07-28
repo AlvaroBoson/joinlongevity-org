@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FeatureCard from "@/components/FeatureCard";
 import { motion } from "framer-motion";
 import FadeInUp from '@/components/FadeInUp';
 import { siteConfig } from "@/config/site";
+import AnimatedDotsBackground from "./AnimatedDotsBackground";
 
 // Note: The 'metadata' export has been removed from this file.
 // It now resides in the parent server component `src/app/page.tsx`.
@@ -104,71 +105,57 @@ const faqs = [
 
 export default function HomePageClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const [isHeroInView, setIsHeroInView] = useState(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentHero = heroRef.current;
+    if (currentHero) {
+      observer.observe(currentHero);
+    }
+
+    return () => {
+      if (currentHero) {
+        observer.unobserve(currentHero);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section (Animations retained for now) */}
-      <FadeInUp as="section" className="relative flex items-center min-h-[70vh] bg-[#1E2A38] overflow-hidden">
-        {/* Hero pattern SVG background - Animated */}
-        <div className="absolute inset-x-0 bottom-0 w-full h-full overflow-hidden">
-          <motion.img 
-            src="/image/homepage/long-hero-flat.svg" 
-            alt="" 
-            className="w-full h-full object-cover object-bottom absolute left-0 bottom-0"
-            initial={{ scale: 3, x: "-100%" }}
-            animate={{ 
-              scale: 3,
-              x: ["-100%", "100%", "-100%"]
-            }}
-            transition={{ 
-              repeat: Infinity,
-              duration: 40,
-              ease: "linear"
-            }}
-            style={{
-              zIndex: 1,
-              transformOrigin: 'bottom center'
-            }} 
-          />
-        </div>
-
-        <div className="container mx-auto px-8 sm:px-16 lg:px-32 py-24 flex flex-col items-start justify-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-8 max-w-3xl leading-tight tracking-tight text-white">
-              Longevity Isn&apos;t Just for<br />
-              Billionaires and Scientists
+      {/* New Hero Section */}
+      <section
+        ref={heroRef}
+        className="relative w-full h-[70vh] min-h-[500px] flex items-center justify-center text-center text-gray-800 p-4 overflow-hidden"
+      >
+        <AnimatedDotsBackground isAnimating={isHeroInView} />
+        <div className="relative z-10">
+          <FadeInUp>
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+              The Future of Longevity is <span className="text-[#64BC6E]">Collaborative</span>.
             </h1>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <p className="text-xl sm:text-2xl text-white/90 mb-10 max-w-2xl">
-              Your first step into longevity, regardless of your background.
+          </FadeInUp>
+          <FadeInUp delay={0.2}>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+              Anyone can join. Get involved regardless of your background.
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <Link href="/introduction">
-              <button className="jl-btn px-10 py-4 text-lg shadow-lg mb-8">
-                New to Longevity?
-              </button>
+          </FadeInUp>
+          <FadeInUp delay={0.4}>
+            <Link href="/get-involved" className="px-8 py-3 bg-[#64BC6E] text-white rounded-full font-semibold text-lg hover:bg-[#52a35b] transition-colors shadow-lg">
+              Get Involved
             </Link>
-          </motion.div>
+          </FadeInUp>
         </div>
-      </FadeInUp>
+      </section>
 
-      {/* Features Section (Cards) - Animations temporarily removed/simplified */}
+      {/* Features Section (Cards) */}
       <FadeInUp as="section" className="py-20 bg-[#1E2A38]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-center gap-4 mb-12">
@@ -341,16 +328,19 @@ export default function HomePageClient() {
             </div>
           </div>
           <div className="flex-1 max-w-2xl">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Join Longevity Projects</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">Join Longevity Projects</h2>
             <p className="font-bold text-gray-900 mb-3 text-lg lg:text-xl">The easiest way to get involved in longevity is to join us.</p>
             <p className="text-lg lg:text-xl text-gray-700 mb-6">
               We&apos;re always looking for people to collaborate with.<br />
               We&apos;re building tools, hosting interviews, forming partnerships, and launching public engagement projects.
             </p>
             <p className="font-bold text-gray-900 mb-8 text-lg lg:text-xl">If you&apos;re curious, creative, or just want to contribute, this is your place.</p>
-            <Link href="/blog#jl-projects">
-              <button className="jl-btn text-white">See our Projects</button>
-            </Link>
+            <div>
+              <p className="text-lg font-semibold text-gray-800">Projects coming soon.</p>
+              <p className="text-sm text-gray-500 mt-2">
+                Last updated: {siteConfig.lastUpdated}
+              </p>
+            </div>
           </div>
         </div>
       </FadeInUp>
