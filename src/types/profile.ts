@@ -7,6 +7,7 @@ export interface Profile {
   category: string[];
   approach: string[];
   evidenceLevel: string;
+  mustKnow: boolean;
 }
 
 export type ProfileList = Profile[];

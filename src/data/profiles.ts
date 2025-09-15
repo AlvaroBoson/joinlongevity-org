@@ -9,7 +9,8 @@ export const profiles: Profile[] = [
     profileUrl: "https://sinclair.hms.harvard.edu/people/david-sinclair",
     category: ["Researcher"],
     approach: ["Cellular Reprogramming", "Metabolic Health"],
-    evidenceLevel: "Published Research"
+    evidenceLevel: "Published Research",
+    mustKnow: true
   },
   {
     id: "aubrey-de-grey",
@@ -19,7 +20,8 @@ export const profiles: Profile[] = [
     profileUrl: "https://www.levf.org/team",
     category: ["Researcher", "Influencer / Creator"],
     approach: ["Damage Repair (SENS)"],
-    evidenceLevel: "Published Research"
+    evidenceLevel: "Published Research",
+    mustKnow: true
   },
   {
     id: "peter-attia",
@@ -29,7 +31,8 @@ export const profiles: Profile[] = [
     profileUrl: "https://peterattiamd.com/about/?_gl=1*10lr2hn*_up*MQ..*_ga*ODU3NTU1MzU1LjE3NDk3MTk2MzQ.*_ga_1CG74LFGNE*czE3NDk3MTk2MzMkbzEkZzAkdDE3NDk3MTk2MzMkajYwJGwwJGgw",
     category: ["Clinician (MD)", "Influencer / Creator"],
     approach: ["Metabolic Health", "Diagnostics & Biomarkers"],
-    evidenceLevel: "Published Research"
+    evidenceLevel: "Published Research",
+    mustKnow: false
   },
   {
     id: "ardd",
@@ -39,7 +42,8 @@ export const profiles: Profile[] = [
     profileUrl: "https://agingpharma.org",
     category: ["Conference"],
     approach: ["Damage Repair (SENS)", "Gene Therapies", "Senolytics", "Cellular Reprogramming"],
-    evidenceLevel: "Published Research"
+    evidenceLevel: "Published Research",
+    mustKnow: true
   },
   {
     id: "longevity-summit-dublin",
@@ -49,7 +53,8 @@ export const profiles: Profile[] = [
     profileUrl: "https://longevitysummitdublin.com",
     category: ["Conference"],
     approach: ["Diagnostics & Biomarkers", "Gene Therapies", "Senolytics", "Cellular Reprogramming"],
-    evidenceLevel: "Published Research"
+    evidenceLevel: "Published Research",
+    mustKnow: true
   },
   {
     id: "transvision",
@@ -59,7 +64,8 @@ export const profiles: Profile[] = [
     profileUrl: "https://www.transvisionmadrid.com",
     category: ["Conference"],
     approach: [],
-    evidenceLevel: "Early Stage / Theoretical"
+    evidenceLevel: "Early Stage / Theoretical",
+    mustKnow: true
   },
   {
     id: "longevity-biotech-fellowship",
@@ -69,7 +75,8 @@ export const profiles: Profile[] = [
     profileUrl: "https://www.longbiofellowship.org",
     category: ["Community / Platform", "Investor / VC"],
     approach: ["Diagnostics & Biomarkers", "Gene Therapies", "Senolytics", "Cellular Reprogramming"],
-    evidenceLevel: "Community"
+    evidenceLevel: "Community",
+    mustKnow: false
   },
   {
     id: "vitalism",
@@ -79,6 +86,40 @@ export const profiles: Profile[] = [
     profileUrl: "https://www.vitalism.io",
     category: ["Community / Platform"],
     approach: ["Metabolic Health"],
-    evidenceLevel: "Community"
+    evidenceLevel: "Community",
+    mustKnow: true
+  },
+  {
+    id: "lifespan-io",
+    name: "Lifespan.io",
+    description: "Leading longevity news platform and research institute dedicated to extending healthy human lifespan through cutting-edge science, advocacy, and education programs.",
+    imageUrl: "/image/profiles/lifespan-io.svg",
+    profileUrl: "https://www.lifespan.io",
+    category: ["News"],
+    approach: ["Damage Repair (SENS)", "Cellular Reprogramming", "Gene Therapies"],
+    evidenceLevel: "Published Research",
+    mustKnow: true
+  },
+  {
+    id: "longevity-technology",
+    name: "Longevity.Technology",
+    description: "Global longevity news and investment platform covering biotech breakthroughs, clinical developments, and market trends in the longevity industry since 2019.",
+    imageUrl: "/image/profiles/longevity-technology.svg",
+    profileUrl: "https://longevity.technology",
+    category: ["News"],
+    approach: ["Diagnostics & Biomarkers", "Gene Therapies", "Senolytics", "Cellular Reprogramming"],
+    evidenceLevel: "Published Research",
+    mustKnow: true
+  },
+  {
+    id: "alvaro",
+    name: "Alvaro",
+    description: "Has broad connections in the longevity field and is ready to help newcomers navigate the space, connect with the right people, and find their path in longevity.",
+    imageUrl: "/image/profiles/alvaro.svg",
+    profileUrl: "https://www.linkedin.com/in/alva-boson/",
+    category: ["Helpers"],
+    approach: [],
+    evidenceLevel: "Community",
+    mustKnow: false
   }
 ]; 

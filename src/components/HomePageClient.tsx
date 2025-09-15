@@ -139,17 +139,17 @@ export default function HomePageClient() {
         <div className="relative z-10">
           <FadeInUp>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-              The Future of Longevity is <span className="text-[#64BC6E]">Collaborative</span>.
+              <span className="text-[#64BC6E]">Longevity</span> is for everyone.
             </h1>
           </FadeInUp>
           <FadeInUp delay={0.2}>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-              Anyone can join. Get involved regardless of your background.
+              Longevity can be overwhelming. We make it simple to understand. So even you can get involved.
             </p>
           </FadeInUp>
           <FadeInUp delay={0.4}>
-            <Link href="/get-involved" className="px-8 py-3 bg-[#64BC6E] text-white rounded-full font-semibold text-lg hover:bg-[#52a35b] transition-colors shadow-lg">
-              Get Involved
+            <Link href="/introduction" className="px-8 py-3 bg-[#64BC6E] text-white rounded-full font-semibold text-lg hover:bg-[#52a35b] transition-colors shadow-lg">
+              Get Started
             </Link>
           </FadeInUp>
         </div>
@@ -160,7 +160,7 @@ export default function HomePageClient() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-center gap-4 mb-12">
             <h2 className="text-2xl font-semibold text-center text-white mb-6">
-              Get started with longevity
+              Choose Your Longevity Path
             </h2>
             
              <div className="flex flex-col items-center">
@@ -212,57 +212,172 @@ export default function HomePageClient() {
         </div>
       </FadeInUp>
 
-      {/* Longevity News, Jobs & Opportunities Section */}
+      {/* How to get started Section */}
       <FadeInUp as="section" id="news-opportunities" className="py-28 bg-[#f6f8fa]">
-        <div className="container mx-auto px-4 sm:px-12 lg:px-24 flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-20">
-          <div className="flex-1 max-w-xl md:pr-8 text-center md:text-left">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">Longevity News, Jobs & Opportunities</h2>
-            <p className="text-lg lg:text-xl text-gray-700 mb-6">
-              There&apos;s real opportunity in longevity and very few people know about it. The field can feel exclusive, so many stay away. But longevity is still a small, growing niche where people are getting involved even without a degree. There&apos;s room for financial, personal, and professional growth.
-            </p>
-            <p className="font-semibold text-gray-800 mb-8 text-lg lg:text-xl">
-              Communities are forming, early-stage startups are hiring, and new investment opportunities are emerging every month.
-            </p>
-            <Link href="/get-involved#events">
-              <button className="jl-btn text-white bg-[#64BC6E] hover:bg-[#52a35b] transition-colors text-lg font-semibold py-3 px-8 rounded-lg shadow-md">
-                Longevity Opportunities
+        <div className="container mx-auto px-4 sm:px-12 lg:px-24">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">How to get started</h2>
+            <p className="text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto">
+              Ready to jump in after{' '}
+              <button
+                onClick={() => {
+                  const orientSection = document.querySelector('#orient-yourself');
+                  if (orientSection) {
+                    orientSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="font-semibold text-[#64BC6E] underline hover:text-[#52a35b] transition-colors cursor-pointer"
+              >
+                orienting yourself
               </button>
-            </Link>
+              ? The first step is to ask yourself: What you want from longevity?
+            </p>
           </div>
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-6 lg:gap-8 items-center justify-center w-full mt-10 md:mt-0">
-            {[
-              { name: "Viva City", src: "/image/homepage/viva-city.svg", href: "https://viva.city" },
-              { name: "A4LI", src: "/image/homepage/a4li.svg", href: "https://a4li.org" },
-              { name: "LEV Foundation", src: "/image/homepage/lev.svg", href: "https://www.levf.org" },
-              { name: "Longevity Xplorer", src: "/image/homepage/longx.svg", href: "https://www.longevityxplorer.com" },
-              { name: "Swedish Longevity Cluster", src: "/image/homepage/swedish-longevity-cluster.svg", href: "https://www.swedishlongevitycluster.se" },
-              { name: "TIME Initiative", src: "/image/homepage/time.svg", href: "https://www.timeinitiative.org" },
-              { name: "Vitalist Bay", src: "/image/homepage/vitalist-bay.svg", href: "https://www.vitalistbay.com" },
-            ].map((logo) => (
-              <Link href={logo.href} key={logo.name} target="_blank" rel="noopener noreferrer" className="group">
-                <div className="h-24 bg-white rounded-lg shadow-lg p-4 flex items-center justify-center transition-all duration-300 ease-in-out hover:shadow-xl group-hover:scale-105">
-                  <Image 
-                    src={logo.src} 
-                    alt={`${logo.name} logo`} 
-                    width={120} // Adjusted for better display, aspect ratio will be maintained by SVG
-                    height={48} // Adjusted for better display
-                    className="object-contain max-h-full max-w-full" 
-                  />
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Just Curious Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#64BC6E]/20">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-[#64BC6E]/10 rounded-full flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-[#64BC6E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
                 </div>
-              </Link>
-            ))}
-            {/* You can add one more for an even grid or leave as 7 */}
+                <h3 className="text-xl font-semibold text-gray-800">Just curious?</h3>
+              </div>
+              <div className="space-y-4 mb-4">
+                <p className="text-gray-600">
+                  <Link href="/introduction" className="text-[#64BC6E] font-semibold underline hover:text-[#52a35b] transition-colors">
+                    Get to know
+                  </Link>
+                  {' '}what longevity is
+                </p>
+                <p className="text-gray-600">
+                  Explore the things you{' '}
+                  <button
+                    onClick={() => {
+                      // Navigate to explorer with Must Know filter enabled
+                      window.location.href = '/longevity-explorer?mustKnow=true#filters';
+                    }}
+                    className="text-[#64BC6E] font-semibold underline hover:text-[#52a35b] transition-colors cursor-pointer bg-transparent border-none p-0"
+                  >
+                    Must know
+                  </button>
+                  {' '}in longevity
+                </p>
+              </div>
+              <div className="text-sm text-gray-500">
+                Perfect for beginners who want to learn and stay informed
+              </div>
+            </div>
+            
+            {/* Want to Contribute Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#64BC6E]/20">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-[#64BC6E]/10 rounded-full flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-[#64BC6E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800">Want to contribute?</h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Discover ways to{' '}
+                <Link href="/get-involved#support-advocate" className="text-[#64BC6E] font-semibold underline hover:text-[#52a35b] transition-colors">
+                  Support Longevity
+                </Link>
+                {' '}or connect with our{' '}
+                <button
+                  onClick={() => {
+                    // Navigate to explorer with Helpers category selected
+                    window.location.href = '/longevity-explorer?category=Helpers#filters';
+                  }}
+                  className="text-[#64BC6E] font-semibold underline hover:text-[#52a35b] transition-colors cursor-pointer bg-transparent border-none p-0"
+                >
+                  Helpers
+                </button>
+              </p>
+              <div className="text-sm text-gray-500">
+                Ready to make an impact? Start here to find your path
+              </div>
+            </div>
           </div>
         </div>
       </FadeInUp>
 
-      {/* Who's Who in Longevity Section - Animations temporarily removed */}
-      <FadeInUp as="section" className="py-28 bg-[#1E2A38]">
+      {/* Orient yourself Section */}
+      <FadeInUp as="section" id="orient-yourself" className="py-28 bg-[#1E2A38]">
         <div className="container mx-auto px-4 sm:px-12 lg:px-24 flex flex-col items-center text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">Longevity Explorer</h2>
-          <p className="text-lg lg:text-xl text-gray-300 mb-10 max-w-3xl">
-            Groundbreaking science mixes with bold claims and endless headlines. How do you separate the signal from the noise? Explore the key researchers, companies, and scientific approaches—all classified by their real-world level of evidence. Find what&apos;s real, what&apos;s promising, and what&apos;s right for you.
-          </p>
+          <div className="mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">Orient yourself</h2>
+            <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+              There are many communities, companies, and projects. To make sense of it all, visit the{' '}
+              <Link href="/longevity-explorer" className="text-[#64BC6E] font-semibold underline hover:text-[#52a35b] transition-colors">
+                Explorer
+              </Link>
+            </p>
+          </div>
+          
+          {/* Simple Instructions Layout */}
+          <div className="max-w-4xl mx-auto mb-16 space-y-8">
+            <div className="flex items-start gap-4 text-left">
+              <div className="flex-shrink-0 w-8 h-8 bg-[#64BC6E] rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                1
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">Fast way to use it</h3>
+                <p className="text-gray-300 text-lg">
+                  Check{' '}
+                  <button
+                    onClick={() => {
+                      // Navigate to explorer with Must Know filter enabled
+                      window.location.href = '/longevity-explorer?mustKnow=true#filters';
+                    }}
+                    className="text-[#64BC6E] font-semibold underline hover:text-[#52a35b] transition-colors cursor-pointer bg-transparent border-none p-0"
+                  >
+                    Must Know
+                  </button>
+                  {' '}to see the essentials everyone knows about
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-4 text-left">
+              <div className="flex-shrink-0 w-8 h-8 bg-[#64BC6E] rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                2
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">Filter by category</h3>
+                <p className="text-gray-300 text-lg">
+                  Researchers, News, Conferences, Helpers
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-4 text-left">
+              <div className="flex-shrink-0 w-8 h-8 bg-[#64BC6E] rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                3
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">Still lost?</h3>
+                <p className="text-gray-300 text-lg">
+                  Reach out to a{' '}
+                  <button
+                    onClick={() => {
+                      // Navigate to explorer with Helpers category selected
+                      window.location.href = '/longevity-explorer?category=Helpers#filters';
+                    }}
+                    className="text-[#64BC6E] font-semibold underline hover:text-[#52a35b] transition-colors cursor-pointer bg-transparent border-none p-0"
+                  >
+                    Helper
+                  </button>
+                  {' '}for guidance
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* ADDING: Mobile-only See full list button, right under the description */}
           <Link href="/longevity-explorer">
             <button className="jl-btn mb-10 text-lg font-semibold shadow block md:hidden">Explore the Landscape</button>
@@ -313,7 +428,7 @@ export default function HomePageClient() {
         </div>
       </FadeInUp>
 
-      {/* Join Longevity Projects Section - Animations temporarily removed */}
+      {/* Join Longevity Projects Section */}
       <FadeInUp as="section" className="py-28 bg-white">
         <div className="container mx-auto px-4 sm:px-12 lg:px-24 flex flex-col md:flex-row items-center md:items-start gap-20 md:gap-32">
           <div className="flex-1 flex justify-center md:justify-start mb-8 md:mb-0">
@@ -321,20 +436,26 @@ export default function HomePageClient() {
               <Image 
                 src="/image/homepage/jl-projects.webp" 
                 alt="Join Longevity Projects"
-                width={384} // Corresponds to w-96 (96*4)
-                height={256} // Corresponds to h-64 (64*4)
+                width={384}
+                height={256}
                 className="object-cover w-full h-full"
               />
             </div>
           </div>
           <div className="flex-1 max-w-2xl">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">Join Longevity Projects</h2>
-            <p className="font-bold text-gray-900 mb-3 text-lg lg:text-xl">The easiest way to get involved in longevity is to join us.</p>
+            <p className="text-lg lg:text-xl text-gray-700 mb-6 font-semibold">Looking for the easy start?</p>
             <p className="text-lg lg:text-xl text-gray-700 mb-6">
-              We&apos;re always looking for people to collaborate with.<br />
-              We&apos;re building tools, hosting interviews, forming partnerships, and launching public engagement projects.
+              The quickest way to get involved is to join us or one of these projects:
             </p>
-            <p className="font-bold text-gray-900 mb-8 text-lg lg:text-xl">If you&apos;re curious, creative, or just want to contribute, this is your place.</p>
+            <div className="space-y-4 mb-8">
+              <p className="text-lg text-gray-700">
+                <strong className="text-gray-900">Join Longevity Needs</strong> – See what we&apos;re looking for right now.
+              </p>
+              <p className="text-lg text-gray-700">
+                <strong className="text-gray-900">Conferences</strong> – Volunteer and enter for free while building your network.
+              </p>
+            </div>
             <div>
               <p className="text-lg font-semibold text-gray-800">Projects coming soon.</p>
               <p className="text-sm text-gray-500 mt-2">

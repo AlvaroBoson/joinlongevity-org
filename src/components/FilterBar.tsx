@@ -4,17 +4,20 @@ export interface Filters {
   category: string[];
   approach: string[];
   evidenceLevel: string[];
+  mustKnow: boolean;
 }
 
 interface FilterBarProps {
   selectedFilters: Filters;
   onFilterChange: (filterType: keyof Filters, value: string) => void;
+  onMustKnowChange: (checked: boolean) => void;
   onClearFilters: () => void;
 }
 
 const FilterBar: React.FC<FilterBarProps> = ({
   selectedFilters,
   onFilterChange,
+  onMustKnowChange,
   onClearFilters,
 }) => {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
@@ -26,7 +29,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
   const filterOptions = {
     category: [
       'Researcher', 'Clinician (MD)', 'Startup / Company', 'Investor / VC', 
-      'Influencer / Creator', 'Community / Platform', 'Conference'
+      'Influencer / Creator', 'Community / Platform', 'Conference', 'News', 'Helpers'
     ],
     approach: [
       'Senolytics', 'Cellular Reprogramming', 'Metabolic Health', 
@@ -46,14 +49,49 @@ const FilterBar: React.FC<FilterBarProps> = ({
   };
 
   const getSelectedCount = (filterType: keyof Filters) => {
+    if (filterType === 'mustKnow') return 0;
     return selectedFilters[filterType].length;
   };
 
-  const hasSelectedFilters = Object.values(selectedFilters).some(arr => arr.length > 0);
+  const hasSelectedFilters = Object.entries(selectedFilters).some(([key, value]) => {
+    if (key === 'mustKnow') return value;
+    return Array.isArray(value) && value.length > 0;
+  });
 
   return (
     <div className="w-full bg-[#1a2330]/50 backdrop-blur-sm border border-[#64BC6E]/10 rounded-xl p-6">
       <div className="flex flex-col space-y-6">
+        {/* Must Know Checkbox - Prominent Position */}
+        <div className="flex items-center justify-center">
+          <label className="flex items-center gap-3 cursor-pointer">
+            <div className="relative">
+              <input
+                type="checkbox"
+                checked={selectedFilters.mustKnow}
+                onChange={(e) => onMustKnowChange(e.target.checked)}
+                className="sr-only"
+              />
+              <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center
+                ${selectedFilters.mustKnow 
+                  ? 'bg-[#64BC6E] border-[#64BC6E]' 
+                  : 'border-gray-400 hover:border-[#64BC6E]'
+                }`}
+              >
+                {selectedFilters.mustKnow && (
+                  <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </div>
+            </div>
+            <span className={`text-lg font-semibold transition-colors ${
+              selectedFilters.mustKnow ? 'text-[#64BC6E]' : 'text-gray-300'
+            }`}>
+              Must Know
+            </span>
+          </label>
+        </div>
+
         {/* Filter Groups */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Category Filter */}
@@ -188,8 +226,21 @@ const FilterBar: React.FC<FilterBarProps> = ({
           <div className="flex items-center gap-2">
             <span className="text-sm text-gray-400">Selected filters:</span>
             <div className="flex flex-wrap gap-2">
-              {Object.entries(selectedFilters).map(([key, values]) =>
-                values.map((value: string) => (
+              {selectedFilters.mustKnow && (
+                <span className="inline-flex items-center px-2 py-1 text-xs rounded-full 
+                  bg-[#64BC6E]/10 text-[#64BC6E] border border-[#64BC6E]/20">
+                  Must Know
+                  <button
+                    onClick={() => onMustKnowChange(false)}
+                    className="ml-1 hover:text-white"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+              {Object.entries(selectedFilters).map(([key, values]) => {
+                if (key === 'mustKnow') return null;
+                return (values as string[]).map((value: string) => (
                   <span
                     key={`${key}-${value}`}
                     className="inline-flex items-center px-2 py-1 text-xs rounded-full 
@@ -204,7 +255,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                     </button>
                   </span>
                 ))
-              )}
+              })}
             </div>
           </div>
           

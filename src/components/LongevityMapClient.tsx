@@ -8,9 +8,7 @@ export default function LongevityMapClient() {
     <div 
       className="absolute inset-0 w-full h-full"
       style={{
-        backgroundColor: '#EBF8FF', // Light blue background
-        backgroundImage: 'radial-gradient(#C4D7E2 1px, transparent 1px)',
-        backgroundSize: '16px 16px',
+        backgroundColor: '#FAFAFA', // Off-white background
       }}
     >
       <LongevityForceGraph />

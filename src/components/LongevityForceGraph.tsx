@@ -51,14 +51,28 @@ const LongevityForceGraph = () => {
     };
   }, []);
 
-  useEffect(() => {
+  const handleEngineStop = useCallback(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const fg = fgRef.current as any;
     if (fg) {
-      fg.zoomToFit(400, 20); // Zoom to fit with padding
-      fg.d3Force('charge').strength(-300);
-      fg.d3Force('link').distance(100);
+      fg.zoomToFit(400, 50);
     }
+  }, []);
+
+  // Gently apply forces after initialization - no reheating
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const fg = fgRef.current as any;
+      if (fg) {
+        // Apply moderate forces without restarting simulation
+        fg.d3Force('charge').strength(-400);
+        fg.d3Force('link').distance(100);
+        // Don't reheat - let it adjust naturally
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
   
   const nodeCanvasObject = useCallback((node: object, ctx: CanvasRenderingContext2D, globalScale: number) => {
@@ -67,17 +81,17 @@ const LongevityForceGraph = () => {
     const fontSize = 12 / globalScale; // Adjust font size based on zoom
     ctx.font = `${fontSize}px Sans-Serif`;
     
-    // Draw node circle
+    // Draw node circle - make it slightly larger for better visual separation
     ctx.fillStyle = n.color;
     ctx.beginPath();
-    ctx.arc(n.x ?? 0, n.y ?? 0, n.val, 0, 2 * Math.PI, false);
+    ctx.arc(n.x ?? 0, n.y ?? 0, n.val * 1.2, 0, 2 * Math.PI, false); // 20% larger nodes
     ctx.fill();
 
-    // Draw text
+    // Draw text with much more offset to avoid overlap
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = '#1A202C'; // Dark text for light background
-    ctx.fillText(label, n.x ?? 0, (n.y ?? 0) + n.val + 8); // Position text below the node
+    ctx.fillText(label, n.x ?? 0, (n.y ?? 0) + (n.val * 1.2) + 15); // Much larger offset
   }, []);
 
   return (
@@ -101,6 +115,7 @@ const LongevityForceGraph = () => {
         width={width}
         height={height}
         backgroundColor="rgba(26, 31, 46, 0)" // transparent
+        onEngineStop={handleEngineStop}
       />
     </div>
   );

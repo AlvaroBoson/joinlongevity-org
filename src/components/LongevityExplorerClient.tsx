@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import ProfileCard from '@/components/ProfileCard';
 import FilterBar, { Filters } from '@/components/FilterBar';
@@ -23,18 +23,60 @@ export default function LongevityExplorerClient() {
     category: [],
     approach: [],
     evidenceLevel: [],
+    mustKnow: false,
   });
+
+  // Handle URL parameters for pre-selecting filters
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const mustKnowParam = urlParams.get('mustKnow');
+      const categoryParam = urlParams.get('category');
+      
+      const initialFilters: Filters = {
+        category: [],
+        approach: [],
+        evidenceLevel: [],
+        mustKnow: false,
+      };
+
+      if (mustKnowParam === 'true') {
+        initialFilters.mustKnow = true;
+      }
+
+      if (categoryParam) {
+        initialFilters.category = [categoryParam];
+      }
+
+      setSelectedFilters(initialFilters);
+
+      // Clean up URL after setting filters
+      if (mustKnowParam || categoryParam) {
+        window.history.replaceState({}, '', '/longevity-explorer');
+      }
+    }
+  }, []);
 
   const handleFilterChange = (filterType: keyof Filters, value: string) => {
     setSelectedFilters(prev => {
       const newFilters = { ...prev };
-      if (newFilters[filterType].includes(value)) {
-        newFilters[filterType] = newFilters[filterType].filter(v => v !== value);
-      } else {
-        newFilters[filterType] = [...newFilters[filterType], value];
+      if (filterType !== 'mustKnow' && Array.isArray(newFilters[filterType])) {
+        const filterArray = newFilters[filterType] as string[];
+        if (filterArray.includes(value)) {
+          (newFilters[filterType] as string[]) = filterArray.filter(v => v !== value);
+        } else {
+          (newFilters[filterType] as string[]) = [...filterArray, value];
+        }
       }
       return newFilters;
     });
+  };
+
+  const handleMustKnowChange = (checked: boolean) => {
+    setSelectedFilters(prev => ({
+      ...prev,
+      mustKnow: checked
+    }));
   };
 
   const clearFilters = () => {
@@ -42,10 +84,16 @@ export default function LongevityExplorerClient() {
       category: [],
       approach: [],
       evidenceLevel: [],
+      mustKnow: false,
     });
   };
 
   const filteredProfiles = profiles.filter(profile => {
+    // If Must Know is checked, only show Must Know profiles
+    if (selectedFilters.mustKnow && !profile.mustKnow) {
+      return false;
+    }
+
     const categoryMatch = selectedFilters.category.length === 0 || 
       selectedFilters.category.some(category => profile.category.includes(category));
     const approachMatch = selectedFilters.approach.length === 0 || 
@@ -132,18 +180,19 @@ export default function LongevityExplorerClient() {
         </FadeInUp>
 
         {/* Filter Section */}
-        <section className="py-8 bg-[#1E2A38]">
+        <section id="filters" className="py-8 bg-[#1E2A38]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <FilterBar
               selectedFilters={selectedFilters}
               onFilterChange={handleFilterChange}
+              onMustKnowChange={handleMustKnowChange}
               onClearFilters={clearFilters}
             />
           </div>
         </section>
 
         {/* Profiles Grid Section */}
-        <section className="py-16 bg-[#1E2A38]">
+        <section id="profiles" className="py-16 bg-[#1E2A38]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProfiles.map((profile) => (
