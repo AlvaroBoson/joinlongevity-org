@@ -8,9 +8,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/apply-longevity', 
     '/get-involved', 
     '/introduction', 
-    '/longevity-map', 
+    '/longevity-map',
+    '/longevity-map-pro', 
     '/longevity-explorer',
-    '/projects-jobs'
+    '/partnership',
+    '/jobs',
+    '/conferences',
+  
   ].map((route) => ({
     url: `${siteConfig.url}${route}`,
     lastModified: new Date().toISOString(),

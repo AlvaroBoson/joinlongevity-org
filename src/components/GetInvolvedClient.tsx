@@ -270,9 +270,7 @@ export default function GetInvolvedClient() {
                     </div>
                      <div className="w-full text-center lg:text-left mt-8">
                         <Link
-                           href="https://longevitylist.com/"
-                           target="_blank"
-                           rel="noopener noreferrer"
+                           href="/jobs"
                            className="inline-block px-8 py-3 bg-[#64BC6E] text-white font-semibold rounded-lg hover:bg-[#52a35b] transition-colors text-lg shadow-md"
                          >
                            View Longevity Jobs
