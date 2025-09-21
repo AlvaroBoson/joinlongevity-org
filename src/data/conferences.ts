@@ -148,5 +148,39 @@ export const conferences: Conference[] = [
     targetAudience: ["Researchers", "Technology Innovators", "Healthcare Professionals", "Entrepreneurs"],
     keyTopics: ["Next-Gen Technologies", "Innovation", "Research Advances", "Technology Applications", "Future Interventions"],
     notableFeatures: ["Innovation Focus", "International Experts", "Portugal Location", "Technology Emphasis"]
+  },
+  {
+    id: "biostasis-2025",
+    name: "Biostasis 2025",
+    description: "You're invited to the world's premiere cryonics facility for our annual three-day cryopreservation conference. Prepare for live field demonstrations, inspiring discussions, and exclusive opportunities to become a member at Tomorrow.bio. If you can't join in person, sign up for an online streaming ticket (Saturday only).",
+    location: "Rafz, Zurich, Switzerland",
+    date: "2025-10-10",
+    endDate: "2025-10-12",
+    website: "https://luma.com/l1onnxm2",
+    type: "Research",
+    focus: "Scientific",
+    virtual: true,
+    hybrid: true,
+    organizer: "Tomorrow Bio",
+    targetAudience: ["Medical Professionals", "Cryonics Community", "Researchers", "Technology Enthusiasts", "Longevity Advocates"],
+    keyTopics: ["Cryopreservation", "Biostasis", "Cryonics Technology", "Medical Applications", "Future of Preservation"],
+    notableFeatures: ["Live Field Demonstrations", "Cryonics Facility Tour", "Tomorrow.bio Membership", "Hybrid Format", "Swiss Location"]
+  },
+  {
+    id: "edge-city-patagonia-2025",
+    name: "Edge City Patagonia",
+    description: "A month-long popup village for builders, researchers, and creators in the Andes. From Oct 18 – Nov 15, we're gathering to prototype new ways of living, working, and building; surrounded by nature, fast internet, and inspiring peers from around the world. Focus on longevity and crypto convergence.",
+    location: "San Martín de Los Andes, Argentina",
+    date: "2025-10-18",
+    endDate: "2025-11-15",
+    website: "https://www.edgecity.live/patagonia",
+    type: "Community",
+    focus: "Technology & Innovation",
+    ticketPrice: "$1,700 - $2,000",
+    virtual: false,
+    organizer: "Edge City",
+    targetAudience: ["Builders", "Researchers", "Creators", "Crypto Enthusiasts", "Longevity Advocates", "Entrepreneurs"],
+    keyTopics: ["Longevity & Crypto", "Decentralized Living", "Technology Innovation", "Community Building", "Future of Work"],
+    notableFeatures: ["Month-Long Experience", "Popup Village", "Andes Location", "Crypto Integration", "Multidisciplinary Focus"]
   }
 ];
